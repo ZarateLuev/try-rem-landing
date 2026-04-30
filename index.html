@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REM — The future of work</title>
+<meta name="description" content="REM is an autonomous AI assistant that operates your business across WhatsApp, Messenger, and Instagram.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+body { background: #000; color: #fff; min-height: 100vh; overflow-x: hidden; }
+
+.aurora { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5; }
+.aurora-blob { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5; mix-blend-mode: screen; animation: float 20s ease-in-out infinite; }
+.aurora-blob.b1 { width: 700px; height: 700px; top: -200px; left: -200px; background: #00ffe1; }
+.aurora-blob.b2 { width: 600px; height: 600px; top: 30%; right: -200px; background: #4a00ff; animation-delay: -7s; }
+.aurora-blob.b3 { width: 500px; height: 500px; bottom: -100px; left: 30%; background: #ff006e; animation-delay: -12s; }
+@keyframes float { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,-50px) scale(1.1); } }
+
+.stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 4s ease-in-out infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+nav { position: fixed; top: 0; left: 0; right: 0; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; z-index: 10; backdrop-filter: blur(10px); background: rgba(0,0,0,0.3); }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 6px; font-style: italic; }
+nav ul { list-style: none; display: flex; gap: 32px; }
+nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+nav a:hover { color: #fff; }
+
+.hero { position: relative; z-index: 5; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 120px); font-weight: 300; letter-spacing: 2px; margin-bottom: 24px; font-style: italic; line-height: 1.1; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero .tagline { font-size: clamp(18px, 2.5vw, 28px); color: rgba(255,255,255,0.7); font-weight: 200; margin-bottom: 48px; max-width: 700px; line-height: 1.5; }
+.cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.btn-primary { padding: 18px 48px; background: #fff; color: #000; border: none; border-radius: 50px; font-size: 14px; letter-spacing: 3px; font-weight: 600; cursor: pointer; text-transform: uppercase; transition: all 0.3s; text-decoration: none; display: inline-block; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255,255,255,0.3); }
+.btn-secondary { padding: 18px 48px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; font-size: 14px; letter-spacing: 3px; font-weight: 500; cursor: pointer; text-transform: uppercase; transition: all 0.3s; text-decoration: none; display: inline-block; }
+.btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+
+section { position: relative; z-index: 5; padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; text-align: center; margin-bottom: 24px; font-style: italic; }
+section .section-subtitle { font-size: 18px; color: rgba(255,255,255,0.6); text-align: center; max-width: 700px; margin: 0 auto 64px; line-height: 1.6; }
+
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.feature { padding: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px); transition: all 0.3s; }
+.feature:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); transform: translateY(-4px); }
+.feature .icon { font-size: 36px; margin-bottom: 16px; }
+.feature h3 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+.feature p { color: rgba(255,255,255,0.6); line-height: 1.6; font-size: 15px; }
+
+.channels { background: rgba(255,255,255,0.02); border-radius: 24px; padding: 64px 48px; text-align: center; border: 1px solid rgba(255,255,255,0.08); }
+.channels-list { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.channel { text-align: center; }
+.channel-icon { font-size: 48px; margin-bottom: 12px; }
+.channel-name { font-size: 16px; color: rgba(255,255,255,0.8); }
+
+footer { position: relative; z-index: 5; padding: 64px 48px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+.footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+.footer-links a:hover { color: #fff; }
+.copyright { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 13px; }
+  section { padding: 60px 24px; }
+  .channels { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora">
+<div class="aurora-blob b1"></div>
+<div class="aurora-blob b2"></div>
+<div class="aurora-blob b3"></div>
+</div>
+
+<div class="stars" id="starsContainer"></div>
+
+<nav>
+<div class="logo">REM</div>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#how">How it works</a></li>
+<li><a href="mailto:support@try-rem.com">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<h1>The future of work.</h1>
+<p class="tagline">REM is an autonomous AI that operates your business across WhatsApp, Messenger, and Instagram. Not a chatbot. A digital employee.</p>
+<div class="cta-buttons">
+<a href="#features" class="btn-primary">Learn More</a>
+<a href="mailto:support@try-rem.com" class="btn-secondary">Contact Us</a>
+</div>
+</div>
+
+<section id="features">
+<h2>Built to operate.</h2>
+<p class="section-subtitle">REM doesn't just respond to messages. It manages orders, attends customers, escalates only when needed, and learns your business.</p>
+<div class="features-grid">
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>Always on</h3>
+<p>Responds to every customer message instantly, 24 hours a day, in any language. Never misses a sale.</p>
+</div>
+<div class="feature">
+<div class="icon">🧠</div>
+<h3>Trained on your business</h3>
+<p>Knows your products, prices, hours, and policies. Speaks with the personality of your brand.</p>
+</div>
+<div class="feature">
+<div class="icon">🎯</div>
+<h3>Knows when to escalate</h3>
+<p>Detects critical conversations and notifies you only when human attention is truly needed.</p>
+</div>
+<div class="feature">
+<div class="icon">💬</div>
+<h3>Multi-channel</h3>
+<p>Connects to WhatsApp, Messenger, and Instagram. One brain, all your customer channels.</p>
+</div>
+<div class="feature">
+<div class="icon">📊</div>
+<h3>Real insights</h3>
+<p>See every conversation, every escalation, every opportunity REM caught for you.</p>
+</div>
+<div class="feature">
+<div class="icon">🚀</div>
+<h3>Setup in minutes</h3>
+<p>A guided onboarding gives REM everything it needs to start operating from day one.</p>
+</div>
+</div>
+</section>
+
+<section id="how">
+<div class="channels">
+<h2 style="margin-bottom: 16px;">One assistant. Every channel.</h2>
+<p class="section-subtitle" style="margin-bottom: 0;">REM connects to your business communication channels and operates them as one unified employee.</p>
+<div class="channels-list">
+<div class="channel">
+<div class="channel-icon">💬</div>
+<div class="channel-name">WhatsApp</div>
+</div>
+<div class="channel">
+<div class="channel-icon">📨</div>
+<div class="channel-name">Messenger</div>
+</div>
+<div class="channel">
+<div class="channel-icon">📷</div>
+<div class="channel-name">Instagram</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-content">
+<div class="copyright">© 2026 REM. All rights reserved.</div>
+<div class="footer-links">
+<a href="/privacy.html">Privacy Policy</a>
+<a href="/terms.html">Terms of Service</a>
+<a href="mailto:support@try-rem.com">Contact</a>
+</div>
+</div>
+</footer>
+
+<script>
+const starsContainer = document.getElementById('starsContainer');
+for (let i = 0; i < 150; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random() * 2 + 0.5;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 4 + 's';
+  star.style.animationDuration = (3 + Math.random() * 4) + 's';
+  starsContainer.appendChild(star);
+}
+</script>
+</body>
+</html>
