@@ -1,185 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REM — The future of work</title>
-<meta name="description" content="REM is an autonomous AI assistant that operates your business across WhatsApp, Messenger, and Instagram.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
-body { background: #000; color: #fff; min-height: 100vh; overflow-x: hidden; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REM — The future of work</title>
+  <meta name="description" content="REM is an autonomous AI assistant that automates customer service across WhatsApp, Messenger, Instagram, and more. One assistant. Every channel." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+      font-size: 14px;
+    }
 
-.aurora { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5; }
-.aurora-blob { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5; mix-blend-mode: screen; animation: float 20s ease-in-out infinite; }
-.aurora-blob.b1 { width: 700px; height: 700px; top: -200px; left: -200px; background: #00ffe1; }
-.aurora-blob.b2 { width: 600px; height: 600px; top: 30%; right: -200px; background: #4a00ff; animation-delay: -7s; }
-.aurora-blob.b3 { width: 500px; height: 500px; bottom: -100px; left: 30%; background: #ff006e; animation-delay: -12s; }
-@keyframes float { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,-50px) scale(1.1); } }
+    /* DEEP DARK BG */
+    .bg-base {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background: 
+        radial-gradient(ellipse at 20% 0%, #0a0a1a 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, #0a0518 0%, transparent 50%),
+        #000;
+    }
 
-.stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-.star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 4s ease-in-out infinite; }
-@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    /* STARS CANVAS */
+    #stars { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
 
-nav { position: fixed; top: 0; left: 0; right: 0; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; z-index: 10; backdrop-filter: blur(10px); background: rgba(0,0,0,0.3); }
-.logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 6px; font-style: italic; }
-nav ul { list-style: none; display: flex; gap: 32px; }
-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.3s; }
-nav a:hover { color: #fff; }
+    /* AURORAS - subtle, elegant */
+    .aurora-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .aurora {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      will-change: transform;
+    }
+    .aurora-1 {
+      width: 35vw; height: 35vw;
+      background: radial-gradient(circle, rgba(0,184,148,0.35) 0%, transparent 70%);
+      top: 5%; left: -10%;
+      animation: floatA 28s ease-in-out infinite;
+    }
+    .aurora-2 {
+      width: 32vw; height: 32vw;
+      background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%);
+      top: 35%; right: -12%;
+      animation: floatB 32s ease-in-out infinite;
+    }
+    .aurora-3 {
+      width: 30vw; height: 30vw;
+      background: radial-gradient(circle, rgba(79,70,229,0.28) 0%, transparent 70%);
+      bottom: 5%; left: 25%;
+      animation: floatC 36s ease-in-out infinite;
+    }
+    .aurora-4 {
+      width: 25vw; height: 25vw;
+      background: radial-gradient(circle, rgba(236,72,153,0.22) 0%, transparent 70%);
+      top: 55%; left: 5%;
+      animation: floatD 30s ease-in-out infinite;
+    }
+    .aurora-5 {
+      width: 28vw; height: 28vw;
+      background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%);
+      top: 80%; right: 20%;
+      animation: floatE 34s ease-in-out infinite;
+    }
+    @keyframes floatA { 0%,100%{transform:translate(0,0)} 50%{transform:translate(15vw,25vh)} }
+    @keyframes floatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20vw,18vh)} }
+    @keyframes floatC { 0%,100%{transform:translate(0,0)} 50%{transform:translate(12vw,-20vh)} }
+    @keyframes floatD { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-12vw,-12vh)} }
+    @keyframes floatE { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18vw,-22vh)} }
 
-.hero { position: relative; z-index: 5; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; }
-.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 120px); font-weight: 300; letter-spacing: 2px; margin-bottom: 24px; font-style: italic; line-height: 1.1; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero .tagline { font-size: clamp(18px, 2.5vw, 28px); color: rgba(255,255,255,0.7); font-weight: 200; margin-bottom: 48px; max-width: 700px; line-height: 1.5; }
-.cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-.btn-primary { padding: 18px 48px; background: #fff; color: #000; border: none; border-radius: 50px; font-size: 14px; letter-spacing: 3px; font-weight: 600; cursor: pointer; text-transform: uppercase; transition: all 0.3s; text-decoration: none; display: inline-block; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255,255,255,0.3); }
-.btn-secondary { padding: 18px 48px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; font-size: 14px; letter-spacing: 3px; font-weight: 500; cursor: pointer; text-transform: uppercase; transition: all 0.3s; text-decoration: none; display: inline-block; }
-.btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 500;
+      letter-spacing: 4px; color: #fff; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none; font-size: 11px;
+      letter-spacing: 1.5px; transition: color 0.3s;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: #fff; }
+    .lang-switcher {
+      display: flex; gap: 4px; align-items: center;
+      background: rgba(255,255,255,0.05);
+      padding: 3px 8px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer; font-size: 10px;
+      padding: 3px 8px; border-radius: 12px;
+      transition: all 0.3s; letter-spacing: 1px;
+    }
+    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.15); }
 
-section { position: relative; z-index: 5; padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; text-align: center; margin-bottom: 24px; font-style: italic; }
-section .section-subtitle { font-size: 18px; color: rgba(255,255,255,0.6); text-align: center; max-width: 700px; margin: 0 auto 64px; line-height: 1.6; }
+    /* SECTIONS */
+    .section {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 24px 80px;
+    }
+    .section-content {
+      position: relative; z-index: 2;
+      max-width: 1100px; width: 100%;
+      text-align: center;
+    }
 
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-.feature { padding: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px); transition: all 0.3s; }
-.feature:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); transform: translateY(-4px); }
-.feature .icon { font-size: 36px; margin-bottom: 16px; }
-.feature h3 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
-.feature p { color: rgba(255,255,255,0.6); line-height: 1.6; font-size: 15px; }
+    /* HERO */
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 400; margin-bottom: 24px;
+      letter-spacing: -0.02em; line-height: 1.1;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.65) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 15px; max-width: 580px;
+      margin: 0 auto 36px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-.channels { background: rgba(255,255,255,0.02); border-radius: 24px; padding: 64px 48px; text-align: center; border: 1px solid rgba(255,255,255,0.08); }
-.channels-list { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-.channel { text-align: center; }
-.channel-icon { font-size: 48px; margin-bottom: 12px; }
-.channel-name { font-size: 16px; color: rgba(255,255,255,0.8); }
+    /* BUTTONS */
+    .btn {
+      padding: 12px 28px; border-radius: 999px;
+      font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s; text-decoration: none;
+      display: inline-block; border: none;
+      font-family: inherit; font-weight: 500;
+    }
+    .btn-primary { background: #fff; color: #000; }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.25);
+    }
+    .btn-secondary {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: #fff;
+    }
 
-footer { position: relative; z-index: 5; padding: 64px 48px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; }
-.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
-.footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
-.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s; }
-.footer-links a:hover { color: #fff; }
-.copyright { color: rgba(255,255,255,0.4); font-size: 13px; }
+    /* TITLES */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 400; margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .section-subtitle {
+      font-size: 14px; max-width: 620px;
+      margin: 0 auto 50px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
 
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  nav ul { gap: 16px; }
-  nav a { font-size: 13px; }
-  section { padding: 60px 24px; }
-  .channels { padding: 48px 24px; }
-}
-</style>
+    /* CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; max-width: 980px; margin: 0 auto;
+    }
+    .card {
+      background: rgba(15,15,25,0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 26px 22px;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(20,20,30,0.65);
+    }
+    .card-icon { font-size: 22px; margin-bottom: 12px; }
+    .card h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+    .card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* CHANNELS */
+    .channels-box {
+      background: rgba(15,15,25,0.45);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 50px 36px;
+      max-width: 620px; margin: 0 auto;
+    }
+    .channels-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .channels-box p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 36px; font-size: 13px; line-height: 1.6;
+    }
+    .channels-icons {
+      display: flex; justify-content: center;
+      gap: 50px; flex-wrap: wrap;
+    }
+    .channel-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
+    }
+    .channel-icon {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+    }
+    .channel-icon svg { width: 100%; height: 100%; }
+    .channel-item span {
+      font-size: 11px; color: rgba(255,255,255,0.7);
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    /* AUTOMATIONS */
+    .automations-intro {
+      max-width: 620px; margin: 0 auto 50px;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px; line-height: 1.8;
+    }
+    .accordion { max-width: 720px; margin: 0 auto; text-align: left; }
+    .accordion-item {
+      background: rgba(15,15,25,0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden; transition: all 0.3s;
+    }
+    .accordion-header {
+      padding: 16px 22px; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover { background: rgba(255,255,255,0.03); }
+    .accordion-header h3 { font-size: 14px; font-weight: 500; }
+    .accordion-icon {
+      font-size: 18px; color: rgba(255,255,255,0.5);
+      transition: transform 0.3s;
+    }
+    .accordion-item.active .accordion-icon { transform: rotate(45deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion-item.active .accordion-body { max-height: 500px; }
+    .accordion-body ul { list-style: none; padding: 0 22px 20px; }
+    .accordion-body li {
+      padding: 7px 0; color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .accordion-body li:last-child { border-bottom: none; }
+    .accordion-body li::before {
+      content: '✦ '; color: rgba(255,255,255,0.4); margin-right: 6px;
+    }
+
+    /* VIDEO */
+    .video-section {
+      padding: 100px 24px; text-align: center;
+      position: relative; z-index: 2;
+    }
+    .video-placeholder {
+      max-width: 800px; margin: 36px auto 0;
+      aspect-ratio: 16/9;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px;
+      backdrop-filter: blur(20px);
+    }
+    .play-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .play-icon::after {
+      content: ''; width: 0; height: 0;
+      border-left: 14px solid rgba(255,255,255,0.6);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: 4px;
+    }
+    .video-placeholder p {
+      color: rgba(255,255,255,0.5);
+      font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* PRICING */
+    .pricing {
+      padding: 100px 24px; text-align: center;
+      position: relative; z-index: 2;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; max-width: 720px;
+      margin: 50px auto 0;
+    }
+    .price-card {
+      background: rgba(15,15,25,0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 40px 28px;
+      transition: all 0.3s;
+    }
+    .price-card:hover {
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-4px);
+    }
+    .price-card.featured {
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(25,25,45,0.7);
+    }
+    .price-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; margin-bottom: 14px;
+    }
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; margin-bottom: 6px; line-height: 1;
+    }
+    .price-suffix {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px; margin-bottom: 28px;
+    }
+    .price-features { list-style: none; margin-bottom: 28px; text-align: left; }
+    .price-features li {
+      padding: 7px 0; color: rgba(255,255,255,0.7); font-size: 13px;
+    }
+    .price-features li::before { content: '✓ '; color: #fff; margin-right: 6px; }
+
+    /* FOOTER */
+    footer {
+      padding: 50px 24px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative; z-index: 2;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+    }
+    .footer-content { max-width: 1100px; margin: 0 auto; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px; margin-bottom: 28px;
+    }
+    .footer-links {
+      display: flex; justify-content: center;
+      gap: 32px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none; font-size: 12px;
+      letter-spacing: 1px; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy {
+      color: rgba(255,255,255,0.3); font-size: 11px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 18px; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.btn):not(.lang-btn) { display: none; }
+      .section { padding: 90px 18px 60px; }
+      .channels-box { padding: 36px 22px; }
+      .channels-icons { gap: 28px; }
+      .footer-links { gap: 18px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="aurora">
-<div class="aurora-blob b1"></div>
-<div class="aurora-blob b2"></div>
-<div class="aurora-blob b3"></div>
-</div>
+  <div class="bg-base"></div>
+  <canvas id="stars"></canvas>
+  <div class="aurora-wrap">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div class="aurora aurora-4"></div>
+    <div class="aurora aurora-5"></div>
+  </div>
 
-<div class="stars" id="starsContainer"></div>
+  <nav>
+    <a href="#" class="logo">REM</a>
+    <div class="nav-links">
+      <a href="#features" data-i18n="nav-features">Features</a>
+      <a href="#pricing" data-i18n="nav-pricing">Pricing</a>
+      <a href="#automations" data-i18n="nav-automations">Automations</a>
+      <a href="mailto:support@try-rem.com" data-i18n="nav-contact">Contact</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+    </div>
+  </nav>
 
-<nav>
-<div class="logo">REM</div>
-<ul>
-<li><a href="#features">Features</a></li>
-<li><a href="#how">How it works</a></li>
-<li><a href="mailto:support@try-rem.com">Contact</a></li>
-</ul>
-</nav>
+  <section class="section hero">
+    <div class="section-content">
+      <h1 data-i18n="hero-title">The future of work.</h1>
+      <p data-i18n="hero-desc">True clarity is born in the REM phase—where complexity becomes vivid, and the impossible feels simple. REM.AI, where your vision stops being a dream and starts becoming reality. Intricately designed, fluid by nature.</p>
+      <div class="hero-buttons">
+        <a href="mailto:support@try-rem.com?subject=I want to try REM" class="btn btn-primary" data-i18n="hero-cta1">Contact Us</a>
+        <a href="#features" class="btn btn-secondary" data-i18n="hero-cta2">Learn More</a>
+      </div>
+    </div>
+  </section>
 
-<div class="hero">
-<h1>The future of work.</h1>
-<p class="tagline">REM is an autonomous AI that operates your business across WhatsApp, Messenger, and Instagram. Not a chatbot. A digital employee.</p>
-<div class="cta-buttons">
-<a href="#features" class="btn-primary">Learn More</a>
-<a href="mailto:support@try-rem.com" class="btn-secondary">Contact Us</a>
-</div>
-</div>
+  <section class="section freedom" id="features">
+    <div class="section-content">
+      <h2 class="section-title" data-i18n="freedom-title">Freedom</h2>
+      <p class="section-subtitle" data-i18n="freedom-desc">Beyond automation lies autonomy. REM inhabits your business, managing the flow from order to customer with surgical precision. It learns, it executes, and it escalates—giving you the freedom to dream while it handles the reality.</p>
+      <div class="cards-grid">
+        <div class="card"><div class="card-icon">⚡</div><h3 data-i18n="card1-title">Always on</h3><p data-i18n="card1-desc">Responds to every customer message, every hour of every day, in any language. Never misses a beat.</p></div>
+        <div class="card"><div class="card-icon">🌸</div><h3 data-i18n="card2-title">Trained on your business</h3><p data-i18n="card2-desc">Knows your products, prices, hours, and policies. Speaks with the personality of your brand.</p></div>
+        <div class="card"><div class="card-icon">🎯</div><h3 data-i18n="card3-title">Knows when to escalate</h3><p data-i18n="card3-desc">Detects critical conversations and routes them to a human when human attention is truly needed.</p></div>
+        <div class="card"><div class="card-icon">🌐</div><h3 data-i18n="card4-title">Multi-channel</h3><p data-i18n="card4-desc">Connects to WhatsApp, Messenger, and Instagram. One brain, all your customer channels.</p></div>
+        <div class="card"><div class="card-icon">📊</div><h3 data-i18n="card5-title">Real insights</h3><p data-i18n="card5-desc">See every conversation, every escalation, every opportunity REM caught for you.</p></div>
+        <div class="card"><div class="card-icon">🚀</div><h3 data-i18n="card6-title">Setup in minutes</h3><p data-i18n="card6-desc">A guided onboarding gives REM everything it needs to start operating from day one.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section id="features">
-<h2>Built to operate.</h2>
-<p class="section-subtitle">REM doesn't just respond to messages. It manages orders, attends customers, escalates only when needed, and learns your business.</p>
-<div class="features-grid">
-<div class="feature">
-<div class="icon">⚡</div>
-<h3>Always on</h3>
-<p>Responds to every customer message instantly, 24 hours a day, in any language. Never misses a sale.</p>
-</div>
-<div class="feature">
-<div class="icon">🧠</div>
-<h3>Trained on your business</h3>
-<p>Knows your products, prices, hours, and policies. Speaks with the personality of your brand.</p>
-</div>
-<div class="feature">
-<div class="icon">🎯</div>
-<h3>Knows when to escalate</h3>
-<p>Detects critical conversations and notifies you only when human attention is truly needed.</p>
-</div>
-<div class="feature">
-<div class="icon">💬</div>
-<h3>Multi-channel</h3>
-<p>Connects to WhatsApp, Messenger, and Instagram. One brain, all your customer channels.</p>
-</div>
-<div class="feature">
-<div class="icon">📊</div>
-<h3>Real insights</h3>
-<p>See every conversation, every escalation, every opportunity REM caught for you.</p>
-</div>
-<div class="feature">
-<div class="icon">🚀</div>
-<h3>Setup in minutes</h3>
-<p>A guided onboarding gives REM everything it needs to start operating from day one.</p>
-</div>
-</div>
-</section>
+  <section class="section channels">
+    <div class="section-content">
+      <div class="channels-box">
+        <h2 data-i18n="channels-title">One assistant. Every channel.</h2>
+        <p data-i18n="channels-desc">REM connects to your business communication channels and operates them as one unified employee.</p>
+        <div class="channels-icons">
+          <div class="channel-item">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.5 12.5c-.83 1.66-2.5 3-4.5 3.5v-3h2v-2h-2v-2h-3v2h-2v2h2v3c-2-.5-3.67-1.84-4.5-3.5C5 13.5 4.5 12.3 4.5 11c0-1.3.5-2.5 1-3.5C6.33 5.84 8 4.5 10 4v3h-2v2h2v2h3V9h2V7h-2V4c2 .5 3.67 1.84 4.5 3.5.5 1 1 2.2 1 3.5 0 1.3-.5 2.5-1 3.5z"/></svg></div>
+            <span>Meta</span>
+          </div>
+          <div class="channel-item">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+            <span>Google</span>
+          </div>
+          <div class="channel-item">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg></div>
+            <span>Payments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="how">
-<div class="channels">
-<h2 style="margin-bottom: 16px;">One assistant. Every channel.</h2>
-<p class="section-subtitle" style="margin-bottom: 0;">REM connects to your business communication channels and operates them as one unified employee.</p>
-<div class="channels-list">
-<div class="channel">
-<div class="channel-icon">💬</div>
-<div class="channel-name">WhatsApp</div>
-</div>
-<div class="channel">
-<div class="channel-icon">📨</div>
-<div class="channel-name">Messenger</div>
-</div>
-<div class="channel">
-<div class="channel-icon">📷</div>
-<div class="channel-name">Instagram</div>
-</div>
-</div>
-</div>
-</section>
+  <section class="section automations" id="automations">
+    <div class="section-content">
+      <h2 class="section-title" data-i18n="auto-title">Automations</h2>
+      <p class="automations-intro" data-i18n="auto-intro">This is what your AI can do without you lifting a finger—with a fully human, comfortable voice of your choice.</p>
+      <div class="accordion">
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc1-title">Meta (Facebook / Instagram / Messenger)</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc1-1">Automatic DM responses</li><li data-i18n="acc1-2">Sales bots</li><li data-i18n="acc1-3">Lead qualification</li><li data-i18n="acc1-4">Automatic follow-up</li><li data-i18n="acc1-5">Comment replies</li><li data-i18n="acc1-6">Automated promotional messaging</li><li data-i18n="acc1-7">Scheduling from messages</li><li data-i18n="acc1-8">Engagement analysis</li><li data-i18n="acc1-9">Comment moderation</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc2-title">Google (full ecosystem)</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc2-1">Read and respond to Gmail</li><li data-i18n="acc2-2">Email classification</li><li data-i18n="acc2-3">Data extraction (invoices, leads)</li><li data-i18n="acc2-4">Report generation in Sheets</li><li data-i18n="acc2-5">Google Drive automation</li><li data-i18n="acc2-6">Document summarization</li><li data-i18n="acc2-7">Google Calendar scheduling</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc3-title">WhatsApp</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc3-1">24/7 WhatsApp customer service</li><li data-i18n="acc3-2">Sales bots</li><li data-i18n="acc3-3">Order confirmations</li><li data-i18n="acc3-4">Customer follow-up</li><li data-i18n="acc3-5">Automated reminders</li><li data-i18n="acc3-6">Inactive customer recovery</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc4-title">E-commerce (Shopify / online stores)</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc4-1">Shopify order processing</li><li data-i18n="acc4-2">Inventory updates</li><li data-i18n="acc4-3">Post-purchase emails</li><li data-i18n="acc4-4">Abandoned cart recovery</li><li data-i18n="acc4-5">Product recommendations</li><li data-i18n="acc4-6">Returns management</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc5-title">CRM / Sales</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc5-1">Automatic lead follow-up</li><li data-i18n="acc5-2">Automated sales pipeline</li><li data-i18n="acc5-3">Closing reminders</li><li data-i18n="acc5-4">Quote generation</li><li data-i18n="acc5-5">Sales forecasting</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc6-title">Social Media (general)</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc6-1">Content generation</li><li data-i18n="acc6-2">Post scheduling</li><li data-i18n="acc6-3">Automatic responses</li><li data-i18n="acc6-4">Metrics analysis</li><li data-i18n="acc6-5">Trend detection</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc7-title">Administration</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc7-1">Automated invoicing</li><li data-i18n="acc7-2">Payment management</li><li data-i18n="acc7-3">Contract generation</li><li data-i18n="acc7-4">File organization</li><li data-i18n="acc7-5">Financial reports</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc8-title">Human Resources</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc8-1">CV filtering</li><li data-i18n="acc8-2">Initial AI interviews</li><li data-i18n="acc8-3">Automated onboarding</li><li data-i18n="acc8-4">Performance reviews</li><li data-i18n="acc8-5">Schedule management</li></ul></div></div>
+        <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3 data-i18n="acc9-title">Data & Analytics</h3><span class="accordion-icon">+</span></div><div class="accordion-body"><ul><li data-i18n="acc9-1">Automated dashboards</li><li data-i18n="acc9-2">Excel reports</li><li data-i18n="acc9-3">Smart alerts</li><li data-i18n="acc9-4">Forecasting predictions</li></ul></div></div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-<div class="footer-content">
-<div class="copyright">© 2026 REM. All rights reserved.</div>
-<div class="footer-links">
-<a href="/privacy.html">Privacy Policy</a>
-<a href="/terms.html">Terms of Service</a>
-<a href="mailto:support@try-rem.com">Contact</a>
-</div>
-</div>
-</footer>
+  <section class="video-section" id="how-it-works">
+    <h2 class="section-title" data-i18n="video-title">See REM in action</h2>
+    <p class="section-subtitle" data-i18n="video-desc">A cinematic onboarding. A brain that learns your business. An assistant that never sleeps.</p>
+    <div class="video-placeholder">
+      <div class="play-icon"></div>
+      <p data-i18n="video-soon">Demo coming soon</p>
+    </div>
+  </section>
 
-<script>
-const starsContainer = document.getElementById('starsContainer');
-for (let i = 0; i < 150; i++) {
-  const star = document.createElement('div');
-  star.className = 'star';
-  const size = Math.random() * 2 + 0.5;
-  star.style.width = size + 'px';
-  star.style.height = size + 'px';
-  star.style.left = Math.random() * 100 + '%';
-  star.style.top = Math.random() * 100 + '%';
-  star.style.animationDelay = Math.random() * 4 + 's';
-  star.style.animationDuration = (3 + Math.random() * 4) + 's';
-  starsContainer.appendChild(star);
-}
-</script>
+  <section class="pricing" id="pricing">
+    <h2 class="section-title" data-i18n="pricing-title">Simple pricing</h2>
+    <p class="section-subtitle" data-i18n="pricing-desc">Start automating your business today. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="price-card featured">
+        <h3 data-i18n="plan1-title">Standard</h3>
+        <div class="price">$99<span style="font-size:18px;color:rgba(255,255,255,0.5)">/mo</span></div>
+        <div class="price-suffix" data-i18n="plan1-suffix">All you need to start</div>
+        <ul class="price-features">
+          <li data-i18n="plan1-f1">WhatsApp + Messenger + Instagram</li>
+          <li data-i18n="plan1-f2">Unlimited conversations</li>
+          <li data-i18n="plan1-f3">Trained on your business</li>
+          <li data-i18n="plan1-f4">Smart escalation to humans</li>
+          <li data-i18n="plan1-f5">Real-time analytics</li>
+          <li data-i18n="plan1-f6">Email support</li>
+        </ul>
+        <a href="mailto:support@try-rem.com?subject=Standard plan - REM" class="btn btn-primary" data-i18n="plan1-cta">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h3 data-i18n="plan2-title">Custom</h3>
+        <div class="price" data-i18n="plan2-price">Let's talk</div>
+        <div class="price-suffix" data-i18n="plan2-suffix">Tailored to your needs</div>
+        <ul class="price-features">
+          <li data-i18n="plan2-f1">Everything in Standard</li>
+          <li data-i18n="plan2-f2">Custom integrations</li>
+          <li data-i18n="plan2-f3">CRM, Shopify, Google Workspace</li>
+          <li data-i18n="plan2-f4">Custom voice and personality</li>
+          <li data-i18n="plan2-f5">Priority support</li>
+          <li data-i18n="plan2-f6">Dedicated account manager</li>
+        </ul>
+        <a href="mailto:support@try-rem.com?subject=Custom plan - REM" class="btn btn-secondary" data-i18n="plan2-cta">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">REM</div>
+      <p class="footer-tagline" data-i18n="footer-tagline">The future of work, today.</p>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="footer-terms">Terms of Service</a>
+        <a href="mailto:support@try-rem.com" data-i18n="footer-contact">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 REM.AI · All rights reserved · support@try-rem.com</div>
+    </div>
+  </footer>
+
+  <script>
+    // STARS - canvas (lightweight, fast)
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let shootingStars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      generateStars();
+    }
+
+    function generateStars() {
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 3000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.2 + 0.2,
+          opacity: Math.random() * 0.6 + 0.2,
+          twinkleSpeed: Math.random() * 0.02 + 0.005,
+          twinklePhase: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    function spawnShootingStar() {
+      if (Math.random() < 0.003) {
+        shootingStars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height * 0.5,
+          dx: -(Math.random() * 4 + 6),
+          dy: (Math.random() * 2 + 3),
+          life: 1,
+          length: Math.random() * 80 + 40
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(s => {
+        s.twinklePhase += s.twinkleSpeed;
+        const twinkle = (Math.sin(s.twinklePhase) + 1) / 2;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.opacity * (0.4 + twinkle * 0.6)})`;
+        ctx.fill();
+      });
+
+      spawnShootingStar();
+      shootingStars = shootingStars.filter(ss => {
+        const grad = ctx.createLinearGradient(ss.x, ss.y, ss.x + ss.length, ss.y - ss.length * 0.5);
+        grad.addColorStop(0, `rgba(255,255,255,${ss.life})`);
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(ss.x, ss.y);
+        ctx.lineTo(ss.x + ss.length, ss.y - ss.length * 0.5);
+        ctx.stroke();
+        ss.x += ss.dx;
+        ss.y += ss.dy;
+        ss.life -= 0.02;
+        return ss.life > 0;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    animate();
+
+    // ACCORDION
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    }
+
+    // TRANSLATIONS
+    const translations = {
+      en: {
+        'nav-features':'Features','nav-pricing':'Pricing','nav-automations':'Automations','nav-contact':'Contact',
+        'hero-title':'The future of work.',
+        'hero-desc':'True clarity is born in the REM phase—where complexity becomes vivid, and the impossible feels simple. REM.AI, where your vision stops being a dream and starts becoming reality. Intricately designed, fluid by nature.',
+        'hero-cta1':'Contact Us','hero-cta2':'Learn More',
+        'freedom-title':'Freedom',
+        'freedom-desc':'Beyond automation lies autonomy. REM inhabits your business, managing the flow from order to customer with surgical precision. It learns, it executes, and it escalates—giving you the freedom to dream while it handles the reality.',
+        'card1-title':'Always on','card1-desc':'Responds to every customer message, every hour of every day, in any language. Never misses a beat.',
+        'card2-title':'Trained on your business','card2-desc':'Knows your products, prices, hours, and policies. Speaks with the personality of your brand.',
+        'card3-title':'Knows when to escalate','card3-desc':'Detects critical conversations and routes them to a human when human attention is truly needed.',
+        'card4-title':'Multi-channel','card4-desc':'Connects to WhatsApp, Messenger, and Instagram. One brain, all your customer channels.',
+        'card5-title':'Real insights','card5-desc':'See every conversation, every escalation, every opportunity REM caught for you.',
+        'card6-title':'Setup in minutes','card6-desc':'A guided onboarding gives REM everything it needs to start operating from day one.',
+        'channels-title':'One assistant. Every channel.',
+        'channels-desc':'REM connects to your business communication channels and operates them as one unified employee.',
+        'auto-title':'Automations',
+        'auto-intro':'This is what your AI can do without you lifting a finger—with a fully human, comfortable voice of your choice.',
+        'video-title':'See REM in action','video-desc':'A cinematic onboarding. A brain that learns your business. An assistant that never sleeps.','video-soon':'Demo coming soon',
+        'pricing-title':'Simple pricing','pricing-desc':'Start automating your business today. Cancel anytime.',
+        'plan1-title':'Standard','plan1-suffix':'All you need to start','plan1-cta':'Get Started',
+        'plan1-f1':'WhatsApp + Messenger + Instagram','plan1-f2':'Unlimited conversations','plan1-f3':'Trained on your business','plan1-f4':'Smart escalation to humans','plan1-f5':'Real-time analytics','plan1-f6':'Email support',
+        'plan2-title':'Custom','plan2-price':"Let's talk",'plan2-suffix':'Tailored to your needs','plan2-cta':'Contact Us',
+        'plan2-f1':'Everything in Standard','plan2-f2':'Custom integrations','plan2-f3':'CRM, Shopify, Google Workspace','plan2-f4':'Custom voice and personality','plan2-f5':'Priority support','plan2-f6':'Dedicated account manager',
+        'footer-tagline':'The future of work, today.','footer-privacy':'Privacy Policy','footer-terms':'Terms of Service','footer-contact':'Contact'
+      },
+      es: {
+        'nav-features':'Funciones','nav-pricing':'Precios','nav-automations':'Automatizaciones','nav-contact':'Contacto',
+        'hero-title':'El futuro del trabajo.',
+        'hero-desc':'La verdadera claridad nace en la fase REM—donde la complejidad se vuelve nítida, y lo imposible se siente simple. REM.AI, donde tu visión deja de ser un sueño y empieza a ser realidad. Intrincadamente diseñado, fluido por naturaleza.',
+        'hero-cta1':'Contáctanos','hero-cta2':'Conocer Más',
+        'freedom-title':'Libertad',
+        'freedom-desc':'Más allá de la automatización está la autonomía. REM habita tu negocio, gestionando el flujo del pedido al cliente con precisión quirúrgica. Aprende, ejecuta y escala—dándote la libertad de soñar mientras maneja la realidad.',
+        'card1-title':'Siempre activo','card1-desc':'Responde cada mensaje de cliente, cada hora de cada día, en cualquier idioma. Nunca falla.',
+        'card2-title':'Entrenado en tu negocio','card2-desc':'Conoce tus productos, precios, horarios y políticas. Habla con la personalidad de tu marca.',
+        'card3-title':'Sabe cuándo escalar','card3-desc':'Detecta conversaciones críticas y las dirige a un humano cuando la atención humana es realmente necesaria.',
+        'card4-title':'Multicanal','card4-desc':'Conecta a WhatsApp, Messenger e Instagram. Un cerebro, todos tus canales de cliente.',
+        'card5-title':'Insights reales','card5-desc':'Mira cada conversación, cada escalación, cada oportunidad que REM capturó para ti.',
+        'card6-title':'Configuración en minutos','card6-desc':'Un onboarding guiado le da a REM todo lo que necesita para operar desde el día uno.',
+        'channels-title':'Un asistente. Cada canal.',
+        'channels-desc':'REM se conecta a los canales de comunicación de tu negocio y los opera como un empleado unificado.',
+        'auto-title':'Automatizaciones',
+        'auto-intro':'Esto es lo que tu IA puede hacer sin que muevas un dedo—con una voz totalmente humana y cómoda a tu elección.',
+        'acc1-title':'Meta (Facebook / Instagram / Messenger)',
+        'acc1-1':'Respuesta automática de DMs','acc1-2':'Bots de ventas','acc1-3':'Calificación de leads','acc1-4':'Seguimiento automático','acc1-5':'Respuesta a comentarios','acc1-6':'Envío de promociones automático','acc1-7':'Agendamiento desde mensajes','acc1-8':'Análisis de engagement','acc1-9':'Moderación de comentarios',
+        'acc2-title':'Google (ecosistema completo)',
+        'acc2-1':'Lectura y respuesta de Gmail','acc2-2':'Clasificación de emails','acc2-3':'Extracción de datos (facturas, leads)','acc2-4':'Generación de reportes en Sheets','acc2-5':'Automatización de Google Drive','acc2-6':'Resúmenes de documentos','acc2-7':'Agendamiento en Google Calendar',
+        'acc3-title':'WhatsApp',
+        'acc3-1':'Atención al cliente 24/7 en WhatsApp','acc3-2':'Bots de ventas','acc3-3':'Confirmación de pedidos','acc3-4':'Seguimiento de clientes','acc3-5':'Recordatorios automáticos','acc3-6':'Recuperación de clientes inactivos',
+        'acc4-title':'E-commerce (Shopify / tiendas)',
+        'acc4-1':'Procesamiento de pedidos en Shopify','acc4-2':'Actualización de inventario','acc4-3':'Emails post-compra','acc4-4':'Carritos abandonados','acc4-5':'Recomendaciones de productos','acc4-6':'Gestión de devoluciones',
+        'acc5-title':'CRM / Ventas',
+        'acc5-1':'Seguimiento automático de leads','acc5-2':'Pipeline de ventas automatizado','acc5-3':'Recordatorios de cierre','acc5-4':'Generación de cotizaciones','acc5-5':'Predicción de ventas',
+        'acc6-title':'Redes sociales (general)',
+        'acc6-1':'Generación de contenido','acc6-2':'Programación de posts','acc6-3':'Respuestas automáticas','acc6-4':'Análisis de métricas','acc6-5':'Detección de tendencias',
+        'acc7-title':'Administración',
+        'acc7-1':'Facturación automática','acc7-2':'Gestión de pagos','acc7-3':'Generación de contratos','acc7-4':'Organización de archivos','acc7-5':'Reportes financieros',
+        'acc8-title':'Recursos Humanos',
+        'acc8-1':'Filtrado de CVs','acc8-2':'Entrevistas iniciales con IA','acc8-3':'Onboarding automático','acc8-4':'Evaluaciones de desempeño','acc8-5':'Gestión de horarios',
+        'acc9-title':'Datos y análisis',
+        'acc9-1':'Dashboards automáticos','acc9-2':'Reportes en Excel','acc9-3':'Alertas inteligentes','acc9-4':'Predicciones (forecasting)',
+        'video-title':'REM en acción','video-desc':'Un onboarding cinematográfico. Un cerebro que aprende tu negocio. Un asistente que nunca duerme.','video-soon':'Demo próximamente',
+        'pricing-title':'Precios simples','pricing-desc':'Empieza a automatizar tu negocio hoy. Cancela cuando quieras.',
+        'plan1-title':'Estándar','plan1-suffix':'Todo lo que necesitas para empezar','plan1-cta':'Empezar',
+        'plan1-f1':'WhatsApp + Messenger + Instagram','plan1-f2':'Conversaciones ilimitadas','plan1-f3':'Entrenado en tu negocio','plan1-f4':'Escalación inteligente a humanos','plan1-f5':'Analíticas en tiempo real','plan1-f6':'Soporte por email',
+        'plan2-title':'Custom','plan2-price':'Hablemos','plan2-suffix':'A la medida de tus necesidades','plan2-cta':'Contáctanos',
+        'plan2-f1':'Todo lo del Estándar','plan2-f2':'Integraciones a la medida','plan2-f3':'CRM, Shopify, Google Workspace','plan2-f4':'Voz y personalidad personalizadas','plan2-f5':'Soporte prioritario','plan2-f6':'Manager de cuenta dedicado',
+        'footer-tagline':'El futuro del trabajo, hoy.','footer-privacy':'Política de Privacidad','footer-terms':'Términos de Servicio','footer-contact':'Contacto'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      document.documentElement.lang = lang;
+      localStorage.setItem('rem-lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(localStorage.getItem('rem-lang') || 'en');
+  </script>
 </body>
 </html>
