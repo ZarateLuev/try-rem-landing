@@ -329,6 +329,14 @@
       font-size: 11px; letter-spacing: 2px;
       text-transform: uppercase;
     }
+    .demo-video {
+      display: block; margin: 36px auto 0;
+      width: 100%; max-width: 340px;
+      aspect-ratio: 9/16; object-fit: cover;
+      background: #000; border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
 
     /* PRICING */
     .pricing {
@@ -517,10 +525,9 @@
   <section class="video-section" id="how-it-works">
     <h2 class="section-title" data-i18n="video-title">See REM in action</h2>
     <p class="section-subtitle" data-i18n="video-desc">A cinematic onboarding. A brain that learns your business. An assistant that never sleeps.</p>
-    <div class="video-placeholder">
-      <div class="play-icon"></div>
-      <p data-i18n="video-soon">Demo coming soon</p>
-    </div>
+    <video class="demo-video" controls playsinline preload="none" poster="assets/demo-poster.jpg">
+      <source src="assets/demo.mp4" type="video/mp4" />
+    </video>
   </section>
 
   <section class="pricing" id="pricing">
