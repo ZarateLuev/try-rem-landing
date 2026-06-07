@@ -186,6 +186,12 @@ nav{
 .vp-icon{width:26px;height:26px;color:rgba(255,255,255,0.2);}
 .vp-label{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,0.14);}
 .vp-num{position:absolute;top:20px;left:24px;font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.28em;color:rgba(255,255,255,.1);}
+/* ── DEMO SHOWCASE ── */
+.demo-showcase{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:64px;}
+.demo-frame{position:relative;padding:10px;border-radius:30px;background:linear-gradient(160deg,rgba(0,184,148,0.14),rgba(124,58,237,0.1));border:1px solid rgba(255,255,255,0.07);box-shadow:0 40px 120px rgba(0,0,0,0.65),0 0 90px rgba(0,184,148,0.06);}
+.demo-frame::before{content:'';position:absolute;inset:-1px;border-radius:30px;padding:1px;background:linear-gradient(160deg,rgba(0,184,148,0.4),transparent 40%,transparent 60%,rgba(124,58,237,0.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.demo-vid{display:block;width:100%;max-width:300px;aspect-ratio:9/16;object-fit:cover;border-radius:22px;background:#03030a;}
+.demo-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:300;letter-spacing:.04em;color:rgba(210,208,205,0.5);}
 
 /* ── TESTIMONIALS ── */
 #testimonials{position:relative;z-index:1;padding:140px 80px;background:rgba(3,3,10,0.55);backdrop-filter:blur(12px);border-top:1px solid var(--b);}
@@ -511,30 +517,15 @@ footer{position:relative;z-index:1;padding:64px 80px 40px;border-top:1px solid v
     <div class="vp-head sec-head reveal">
       <p class="sec-tag" data-i18n="vp_tag">— En acción</p>
       <h2 class="sec-title" id="vpTitle">Míralo funcionar<br>en tiempo real</h2>
-      <p class="sec-sub" data-i18n="vp_sub">Videos de demostración próximamente.</p>
+      <p class="sec-sub" data-i18n="vp_sub">Un vistazo a la experiencia REM.</p>
     </div>
-    <div class="vp-grid">
-      <div class="vp-box reveal reveal-delay-1">
-        <span class="vp-num">01</span>
-        <div class="vp-icon-ring">
-          <svg class="vp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.259a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
-        </div>
-        <span class="vp-label" data-i18n="vp1_label">Demo · Atención al Cliente</span>
+    <div class="demo-showcase reveal">
+      <div class="demo-frame">
+        <video class="demo-vid" controls playsinline preload="none" poster="assets/demo-poster.jpg">
+          <source src="assets/demo.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div class="vp-box reveal reveal-delay-2">
-        <span class="vp-num">02</span>
-        <div class="vp-icon-ring">
-          <svg class="vp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.259a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
-        </div>
-        <span class="vp-label" data-i18n="vp2_label">Demo · Integración Shopify</span>
-      </div>
-      <div class="vp-box reveal reveal-delay-3">
-        <span class="vp-num">03</span>
-        <div class="vp-icon-ring">
-          <svg class="vp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.259a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
-        </div>
-        <span class="vp-label" data-i18n="vp3_label">Demo · Analytics Dashboard</span>
-      </div>
+      <p class="demo-cap" data-i18n="demo_cap">Onboarding cinematográfico · narrado por N1</p>
     </div>
   </div>
 </section>
@@ -716,7 +707,7 @@ const I18N={
     c4_title:'Integraciones',c4_desc:'Conecta REM con tu stack en minutos. Shopify, Gmail, LinkedIn y más vía API o no-code.',
     c5_title:'Voz con IA',c5_desc:'Agentes de voz ultra-realistas con ElevenLabs. Llama, atiende y convierte con una voz que tus clientes amarán.',
     c6_title:'Analytics & BI',c6_desc:'Dashboard completo en tiempo real. Tasas de resolución, sentimiento del cliente, temas frecuentes y ROI.',
-    vp_tag:'— En acción',vp_sub:'Videos de demostración próximamente.',
+    vp_tag:'— En acción',vp_sub:'Un vistazo a la experiencia REM.',demo_cap:'Onboarding cinematográfico · narrado por N1',
     vp1_label:'Demo · Atención al Cliente',vp2_label:'Demo · Integración Shopify',vp3_label:'Demo · Analytics Dashboard',
     test_tag:'— Testimonios',
     test1_text:'Llevábamos meses buscando cómo bajar el tiempo de respuesta en WhatsApp. Con REM lo resolvimos en una semana. Hoy nuestro equipo solo toca los casos que realmente lo necesitan — el resto lo maneja la IA sola.',
@@ -745,7 +736,7 @@ const I18N={
     c4_title:'Integrations',c4_desc:'Connect REM with your stack in minutes. Shopify, Gmail, LinkedIn and more via API or no-code.',
     c5_title:'AI Voice',c5_desc:'Ultra-realistic voice agents with ElevenLabs. Call, attend and convert with a voice your customers will love.',
     c6_title:'Analytics & BI',c6_desc:'Full real-time dashboard. Resolution rates, customer sentiment, trending topics and ROI.',
-    vp_tag:'— In action',vp_sub:'Demo videos coming soon.',
+    vp_tag:'— In action',vp_sub:'A glimpse of the REM experience.',demo_cap:'Cinematic onboarding · narrated by N1',
     vp1_label:'Demo · Customer Service',vp2_label:'Demo · Shopify Integration',vp3_label:'Demo · Analytics Dashboard',
     test_tag:'— Testimonials',
     test1_text:'We spent months looking for a way to reduce WhatsApp response time. With REM we solved it in a week. Now our team only handles the cases that truly need it — the AI takes care of the rest.',
