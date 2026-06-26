@@ -22,7 +22,7 @@
   if(localStorage.getItem('rem_token')) location.replace(PRODUCT + '/chat');
   /* Reescribe TODOS los enlaces de producto (/login, /onboarding, /chat) para que apunten al backend (PRODUCT). */
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('a[href^="/login"], a[href^="/onboarding"], a[href^="/chat"]').forEach(function(a){
+    document.querySelectorAll('a[href^="/login"], a[href^="/registro"], a[href^="/onboarding"], a[href^="/chat"]').forEach(function(a){
       a.setAttribute('href', PRODUCT + a.getAttribute('href'));
     });
   });
@@ -491,7 +491,8 @@ footer{border-top:1px solid var(--line);padding:70px var(--pad) 36px;}
     </h1>
     <p class="h-desc" data-i18n="hero_desc">REM responde, vende y atiende a tus clientes en WhatsApp, Instagram y Shopify — 24 horas, 7 días, sin código.</p>
     <div class="h-btns">
-      <a href="https://calendly.com/try-rem-support" target="_blank" rel="noopener" class="btn btn-main" data-i18n="cta_btn">Agendar una demo</a>
+      <a href="/registro" class="btn btn-main" data-i18n="cta_free">Empezar gratis</a>
+      <a href="https://calendly.com/try-rem-support" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta_btn">Agendar una demo</a>
       <a href="/login" class="btn btn-ghost" data-i18n="login2">Ya tengo cuenta →</a>
     </div>
     <div class="h-trust">
@@ -849,7 +850,7 @@ const I18N = {
     nav_how:'Cómo funciona', nav_services:'Servicios', nav_pricing:'Precios', nav_login:'Iniciar sesión', nav_demo:'Demo gratuita',
     hero_badge:'IA · Atención al Cliente · Ventas', hero_l1:'Tu mejor vendedor', hero_l2:'nunca duerme.',
     hero_desc:'REM responde, vende y atiende a tus clientes en WhatsApp, Instagram y Shopify — 24 horas, 7 días, sin código.',
-    cta_btn:'Agendar una demo', login2:'Ya tengo cuenta →',
+    cta_free:'Empezar gratis', cta_btn:'Agendar una demo', login2:'Ya tengo cuenta →',
     trust1:'Sin tarjeta de crédito', trust2:'En línea en 10 minutos', trust3:'Sin código',
     chat_name:'REM · Asistente de ventas', chat_status:'En línea — responde en segundos', chat_cap:'Simulación · Así vende REM por ti',
     intro:'Tu negocio merece <em>responder siempre</em>, <em>cerrar ventas</em> mientras duermes y <em>escalar sin límites</em>.',
@@ -903,7 +904,7 @@ const I18N = {
     nav_how:'How it works', nav_services:'Services', nav_pricing:'Pricing', nav_login:'Log in', nav_demo:'Free demo',
     hero_badge:'AI · Customer Support · Sales', hero_l1:'Your best salesperson', hero_l2:'never sleeps.',
     hero_desc:'REM replies, sells and supports your customers on WhatsApp, Instagram and Shopify — 24/7, no code required.',
-    cta_btn:'Book a demo', login2:'I have an account →',
+    cta_free:'Start free', cta_btn:'Book a demo', login2:'I have an account →',
     trust1:'No credit card', trust2:'Live in 10 minutes', trust3:'No code',
     chat_name:'REM · Sales assistant', chat_status:'Online — replies in seconds', chat_cap:'Simulation · This is how REM sells for you',
     intro:'Your business deserves to <em>always reply</em>, <em>close sales</em> while you sleep and <em>scale without limits</em>.',
