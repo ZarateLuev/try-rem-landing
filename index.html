@@ -20,6 +20,12 @@
   /* URL del producto (login/onboarding/chat). Al migrar, cambia SOLO esta linea a https://app.try-rem.com */
   window.PRODUCT = 'https://agency-gangly-guacamole.ngrok-free.dev';
   if(localStorage.getItem('rem_token')) location.replace(PRODUCT + '/chat');
+  /* Reescribe TODOS los enlaces de producto (/login, /onboarding, /chat) para que apunten al backend (PRODUCT). */
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('a[href^="/login"], a[href^="/onboarding"], a[href^="/chat"]').forEach(function(a){
+      a.setAttribute('href', PRODUCT + a.getAttribute('href'));
+    });
+  });
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
