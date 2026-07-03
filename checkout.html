@@ -197,7 +197,11 @@ var PLANES={
     wa:'Hola, quiero activar el plan Enterprise de REM ($199 USD/mes). Mi correo: '
   }
 };
-var plan=PLANES[new URLSearchParams(location.search).get('plan')]||PLANES.pro;
+var _params=new URLSearchParams(location.search);
+var plan=PLANES[_params.get('plan')]||PLANES.pro;
+// Si venimos del chat (Mejorar a Pro), el correo ya viene en la URL: prellénalo.
+var _emailParam=_params.get('email');
+if(_emailParam)document.getElementById('email').value=_emailParam;
 document.getElementById('planTag').textContent=plan.tag;
 document.getElementById('planPrice').innerHTML='$'+plan.precio+'<small> USD / mes</small>';
 document.getElementById('planTotal').textContent='$'+plan.precio+'.00 USD';
