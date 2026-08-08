@@ -183,18 +183,15 @@ input:focus{border-color:rgba(0,201,160,.5);}
 </div>
 
 <script>
+// UN SOLO PLAN. Los enlaces viejos (?plan=starter, ?plan=enterprise) siguen existiendo por ahí
+// —en correos, en capturas, en el chat— y caen aquí igual: al no encontrar la clave, el
+// fallback los deja en el de $99 en vez de romper la página.
 var PLANES={
   pro:{
-    tag:'PLAN PRO',precio:99,ent:false,
-    lista:['WhatsApp, Instagram, Gmail y Shopify conectados','REM atendiendo a tus clientes reales 24/7','10 reels al mes con REM Studio','Resumen diario y centro de control'],
-    switchTxt:'¿Necesitas la operación completa? <a href="checkout.html?plan=enterprise">Ver Enterprise ($199/mes)</a>',
-    wa:'Hola, quiero activar el plan Pro de REM ($99 USD/mes). Mi correo: '
-  },
-  enterprise:{
-    tag:'PLAN ENTERPRISE',precio:199,ent:true,
-    lista:['Todo lo de Pro con el modelo más avanzado (Kimi K2.7)','Video generado con IA para tus reels (Google Veo 3.1)','Leads de Google Maps a tu Sheet, cada semana','Facturación automática Stripe/PayPal','Filtro de CVs con IA'],
-    switchTxt:'¿Solo necesitas la atención y el contenido? <a href="checkout.html?plan=pro">Ver Pro ($99/mes)</a>',
-    wa:'Hola, quiero activar el plan Enterprise de REM ($199 USD/mes). Mi correo: '
+    tag:'PLAN REM.AI',precio:99,ent:false,
+    lista:['WhatsApp, Instagram, Gmail y Shopify conectados','REM atendiendo a tus clientes reales 24/7','Agenda citas sola desde los mensajes','20 videos al mes generados por IA','Voz propia de tu IA y campañas para redes','Equipo, reseñas de Google y bandeja unificada','Resumen diario y centro de control'],
+    switchTxt:'Todo incluido, sin niveles ni extras. Cancela cuando quieras.',
+    wa:'Hola, quiero activar REM ($99 USD/mes). Mi correo: '
   }
 };
 var _params=new URLSearchParams(location.search);
