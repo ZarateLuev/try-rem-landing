@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="REM — tu negocio, atendido">
 <meta name="twitter:description" content="Contesta, vende, agenda y crea videos por WhatsApp e Instagram. Prueba gratis, sin tarjeta.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050510'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%2358e0d0' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="/logo.png">
 <script>
   /* URL del producto (login/onboarding/chat). Al migrar, cambia SOLO esta linea. */
   window.PRODUCT = 'https://app.try-rem.com';
@@ -67,7 +67,10 @@ a{color:inherit;text-decoration:none}
 nav{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(4,4,12,.7);backdrop-filter:blur(12px);border-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:27px;letter-spacing:.14em;color:#fff}
+.logo{display:inline-flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-size:27px;letter-spacing:.14em;color:#fff}
+.logo-badge{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;
+  background:#f5f7fc;box-shadow:0 0 22px rgba(88,224,208,.28);flex-shrink:0}
+.logo-badge img{width:31px;height:31px;object-fit:contain}
 .nav-links{display:flex;align-items:center;gap:30px;font-size:15px;color:var(--ink2)}
 .nav-links a:hover{color:#fff}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;font-size:14.5px;font-weight:500;
@@ -243,7 +246,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 
 <nav id="nav">
   <div class="wrap nav-in">
-    <a href="#top" class="logo">REM</a>
+    <a href="#top" class="logo"><span class="logo-badge"><img src="/logo.png" alt="REM"></span>REM</a>
     <div class="nav-links">
       <a href="#hace" class="hide-m">Qué hace</a>
       <a href="#crea" class="hide-m">Videos</a>
