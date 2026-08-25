@@ -45,14 +45,11 @@ body{background:#04040c;color:var(--ink);font-family:'Inter',system-ui,sans-seri
   radial-gradient(ellipse at 22% 0%, #0b1030 0%, transparent 55%),
   radial-gradient(ellipse at 82% 100%, #0a0620 0%, transparent 55%), #04040c;}
 #stars{position:fixed;inset:0;z-index:-4;pointer-events:none}
-.aurora{position:fixed;border-radius:50%;filter:blur(70px);opacity:.5;z-index:-3;pointer-events:none;
-  mix-blend-mode:screen;will-change:transform}
-.a1{width:62vw;height:62vw;top:-14%;left:-16%;background:radial-gradient(circle,rgba(53,184,232,.5),transparent 66%);animation:fA 34s ease-in-out infinite}
-.a2{width:54vw;height:54vw;top:24%;right:-18%;background:radial-gradient(circle,rgba(88,224,208,.42),transparent 66%);animation:fB 40s ease-in-out infinite}
-.a3{width:50vw;height:50vw;bottom:-10%;left:14%;background:radial-gradient(circle,rgba(155,140,255,.4),transparent 68%);animation:fC 46s ease-in-out infinite}
-@keyframes fA{0%,100%{transform:translate(0,0)}50%{transform:translate(12vw,14vh)}}
-@keyframes fB{0%,100%{transform:translate(0,0)}50%{transform:translate(-14vw,10vh)}}
-@keyframes fC{0%,100%{transform:translate(0,0)}50%{transform:translate(10vw,-12vh)}}
+.aurora{position:fixed;border-radius:50%;filter:blur(58px);opacity:.5;z-index:-3;pointer-events:none;
+  mix-blend-mode:screen}
+.a1{width:62vw;height:62vw;top:-14%;left:-16%;background:radial-gradient(circle,rgba(53,184,232,.5),transparent 66%)}
+.a2{width:54vw;height:54vw;top:24%;right:-18%;background:radial-gradient(circle,rgba(88,224,208,.42),transparent 66%)}
+.a3{width:50vw;height:50vw;bottom:-10%;left:14%;background:radial-gradient(circle,rgba(155,140,255,.4),transparent 68%)}
 .vign{position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:radial-gradient(ellipse at center, transparent 46%, rgba(0,0,0,.66) 100%)}
 .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
@@ -65,7 +62,7 @@ a{color:inherit;text-decoration:none}
 
 /* nav */
 nav{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-nav.scrolled{background:rgba(4,4,12,.7);backdrop-filter:blur(12px);border-color:var(--line)}
+nav.scrolled{background:rgba(4,4,12,.88);backdrop-filter:blur(6px);border-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{display:inline-flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-size:27px;letter-spacing:.14em;color:#fff}
 .logo-badge{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;
@@ -86,8 +83,7 @@ nav.scrolled{background:rgba(4,4,12,.7);backdrop-filter:blur(12px);border-color:
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
 h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:78px;line-height:1.02;letter-spacing:.005em;
   margin:22px 0 26px;color:#fff;text-shadow:0 0 44px rgba(88,224,208,.22)}
-h1 em{font-style:italic;background:linear-gradient(120deg,var(--teal),var(--cyan) 60%,var(--violet));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+h1 em{font-style:italic;color:var(--teal)}
 .lead{font-size:19px;color:var(--ink2);max-width:31em;margin-bottom:36px}
 .lead b{color:var(--ink);font-weight:500}
 .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -127,9 +123,8 @@ section{padding:72px 0;position:relative}
 .sec-head h2 em{font-style:italic;color:var(--teal)}
 
 /* qué hace — filas luminosas, no tarjetas iguales */
-.row{display:grid;grid-template-columns:64px 1fr;gap:26px;padding:38px 0;border-top:1px solid var(--line);align-items:start}
+.row{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;padding:34px 0;border-top:1px solid var(--line);align-items:baseline}
 .row:last-child{border-bottom:1px solid var(--line)}
-.row .num{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--teal);opacity:.85;line-height:1;padding-top:4px}
 .row h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;color:#fff;margin-bottom:9px}
 .row p{color:var(--ink2);max-width:36em}
 .row .tag{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
@@ -180,9 +175,9 @@ section{padding:72px 0;position:relative}
 .vid-cap{display:block;text-align:center;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink2)}
 
 /* franja "para cualquier negocio" */
-.strip{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:38px 0}
-.strip .lbl{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-.chip{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);opacity:.8}
+.strip{padding:40px 0 8px;max-width:44em}
+.strip-lead{font-family:'Cormorant Garamond',serif;font-size:29px;line-height:1.25;color:#fff;font-weight:300;margin-bottom:14px}
+.chip{font-size:14.5px;color:var(--ink2)}
 .chip .sep{color:var(--teal);margin:0 4px;opacity:.7}
 
 /* app demo (video en un solo teléfono grande) */
@@ -227,6 +222,10 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .pill,.arr,.qcard,.fcard{transition:none}
+}
 
 @media(max-width:900px){
   h1{font-size:52px}
@@ -236,6 +235,146 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
   .sec-head h2{font-size:38px}
   .nav-links .hide-m{display:none}
 }
+/* ══════════════════════════════════════════════════════════════════════════
+   DENSIDAD (referencia: raycast.com — elección de Erick)
+   Lo que hace que su landing se sienta "pro" no es el estilo, es la CANTIDAD
+   de producto visible: rejillas de muchas tarjetas pequeñas, pestañas, una
+   franja de datos y un pie con columnas. Aquí se adopta esa estructura con
+   nuestros colores, nuestra serif y nuestro contenido — no su copy ni sus
+   assets, que son suyos.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* aviso bajo el hero */
+.banner{display:flex;justify-content:center;padding:0 0 46px}
+.banner a{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);
+  border-radius:999px;padding:8px 8px 8px 18px;background:rgba(255,255,255,.03);
+  font-size:14px;color:var(--ink2);transition:border-color .2s,background .2s}
+.banner a:hover{border-color:rgba(88,224,208,.45);background:rgba(88,224,208,.06)}
+.banner b{color:#fff;font-weight:500}
+.banner .tagd{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#04120f;background:var(--teal);border-radius:999px;padding:5px 11px}
+
+/* Titular a la izquierda y los controles a la derecha, en la misma línea. Sirve para que no
+   todas las secciones entren igual (kicker → titular centrado → párrafo), que es lo que hace
+   que una página se lea como plantilla. */
+.headrow{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;
+  flex-wrap:wrap;margin-bottom:30px}
+.headrow h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.06;
+  color:#fff;max-width:11em}
+.headrow .aside{font-size:14.5px;color:var(--ink2);max-width:22em;padding-bottom:6px}
+
+/* pestañas + rejilla de tarjetas pequeñas (el gesto característico de Raycast) */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--ink2);
+  background:transparent;cursor:pointer;transition:.2s;font-weight:500}
+.tab:hover{color:#fff;border-color:rgba(255,255,255,.28)}
+.tab.on{color:#04120f;background:var(--teal);border-color:var(--teal)}
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.qcard{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(255,255,255,.02);
+  transition:border-color .2s,background .2s,transform .2s;min-height:132px;
+  display:flex;flex-direction:column;justify-content:space-between}
+.qcard:hover{border-color:rgba(88,224,208,.4);background:rgba(88,224,208,.045);transform:translateY(-2px)}
+.qcard .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.3;color:#fff}
+.qcard .a{margin-top:14px;font-size:13px;color:var(--ink2);line-height:1.45}
+.qcard .src{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink3)}
+
+/* ── Funciones: bento DESIGUAL con pedazos de la interfaz real ──────────────────
+   🔴 Antes esto eran doce tarjetas idénticas con un icono de línea arriba. Doce cajas gemelas
+   con adorno es la maqueta que todo el mundo reconoce como "hecha por IA", y encima no enseña
+   nada: el icono de un sobre no dice cómo se ve la bandeja. Ahora cada bloque mide distinto y
+   dentro lleva un trozo de la pantalla de verdad. */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.bx{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.02);
+  display:flex;flex-direction:column}
+.bx h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#fff;margin-bottom:7px}
+.bx p{font-size:14px;color:var(--ink2);line-height:1.5}
+.bx .mini{margin-top:auto;padding-top:20px}
+.b3{grid-column:span 3}.b2{grid-column:span 2}.b6{grid-column:span 6}
+/* Bloque a dos mitades: el texto de un lado y una CAPTURA REAL de la app del otro. Se alterna
+   el lado en cada fila para que la rejilla no se lea como una tabla. */
+.bx.par{grid-column:span 6;display:grid;grid-template-columns:1fr 1.5fr;gap:36px;align-items:center;padding:28px}
+.bx.par.vuelta{grid-template-columns:1.5fr 1fr}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#05050d;
+  box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.shot img{display:block;width:100%;height:auto}
+.pie{margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink3)}
+.bx.wide{background:radial-gradient(110% 120% at 100% 0%, rgba(88,224,208,.08), transparent 55%),rgba(255,255,255,.02)}
+
+/* trozos de interfaz — no son iconos, son la pantalla */
+.ui{display:flex;flex-direction:column;gap:8px}
+.ui-row{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;
+  padding:11px 13px;background:rgba(4,4,12,.5);font-size:13px}
+.ui-av{width:29px;height:29px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:14px;color:#04120f;background:linear-gradient(135deg,var(--teal),var(--violet))}
+.ui-row .col{flex:1;min-width:0}
+.ui-row .nm{color:#fff;font-weight:500;display:block;line-height:1.3}
+.ui-row .tx{color:var(--ink3);font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:15em}
+.ui-tag{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--teal);border:1px solid rgba(88,224,208,.3);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.ui-tag.hum{color:var(--violet);border-color:rgba(155,140,255,.35)}
+.ui-hour{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink3);width:52px;flex-shrink:0}
+.ui-free{border-style:dashed;color:var(--ink3);justify-content:center;font-size:12px}
+.wave{display:flex;align-items:center;gap:3px;height:26px;flex:1;overflow:hidden}
+.ui-row .play{width:26px;height:26px;border-radius:50%;flex-shrink:0;background:var(--teal);color:#04120f;
+  display:flex;align-items:center;justify-content:center;font-size:8px;padding-left:2px}
+.ui-row .dur{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink3);flex-shrink:0}
+.wave i{width:3px;border-radius:2px;background:linear-gradient(180deg,var(--teal),rgba(88,224,208,.25));display:block}
+
+/* "lo que hace sola" — SIN caja. Son tres mensajes que REM manda de verdad, escalonados y de
+   anchos distintos; encajonarlos en tres tarjetas iguales los convertía en decoración. */
+.auto{display:grid;grid-template-columns:1.05fr .95fr 1fr;gap:34px}
+.abox:nth-child(2){margin-top:46px}
+.abox:nth-child(3){margin-top:18px}
+.abox h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#fff;margin-bottom:8px}
+.abox p{font-size:14.5px;color:var(--ink2);line-height:1.55;margin-bottom:18px}
+.bub{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(4,4,12,.55);
+  font-size:13.5px;line-height:1.45;color:var(--ink)}
+.bub .who{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+.bub.ok{border-color:rgba(88,224,208,.35)}
+.bub.ok .who{color:var(--teal)}
+
+/* FAQ a dos columnas: el titular se queda quieto a la izquierda mientras se leen las respuestas.
+   Otra forma de entrar a una sección — no todo centrado con un párrafo debajo. */
+.faq-cols{display:grid;grid-template-columns:.62fr 1.38fr;gap:56px;align-items:start}
+.faq-cols .faq{max-width:none;margin:0}
+.faq-aside h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:46px;line-height:1.05;color:#fff}
+.faq-aside p{margin-top:16px;font-size:14.5px;color:var(--ink2)}
+.faq-aside a{color:var(--teal)}
+
+/* pie con columnas */
+.foot-cols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px;padding-bottom:40px}
+.foot-cols h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
+.foot-cols ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--ink2)}
+.foot-cols a:hover{color:#fff}
+.foot-brand p{font-size:14px;color:var(--ink2);max-width:26em;margin-top:14px}
+
+@media(max-width:1000px){
+  .qgrid{grid-template-columns:repeat(2,1fr)}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .b3,.b2,.b6{grid-column:span 2}
+  .bx.par,.bx.par.vuelta{grid-column:span 2;grid-template-columns:1fr;gap:24px}
+  .auto{grid-template-columns:1fr;gap:38px}
+  .abox:nth-child(2),.abox:nth-child(3){margin-top:0}
+  .faq-cols{grid-template-columns:1fr;gap:24px}
+  .headrow h2{font-size:38px}
+  .foot-cols{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:560px){
+  .qgrid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .b3,.b2,.b6{grid-column:span 1}
+  .bx.par,.bx.par.vuelta{grid-column:span 1}
+  .banner a{font-size:13px;padding:7px 7px 7px 14px}
+}
+
+.qcard.off{display:none}
+.sec-head.mid{margin-left:auto;margin-right:auto;text-align:center}
+
 </style>
 </head>
 <body>
@@ -249,6 +388,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
     <a href="#top" class="logo"><span class="logo-badge"><img src="/logo.png" alt="REM"></span>REM</a>
     <div class="nav-links">
       <a href="#hace" class="hide-m">Qué hace</a>
+      <a href="#funciones" class="hide-m">Funciones</a>
       <a href="#crea" class="hide-m">Videos</a>
       <a href="#faq" class="hide-m">FAQ</a>
       <a href="#precio" class="hide-m">Precio</a>
@@ -269,24 +409,24 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
         <a href="/registro" class="pill">Probar 7 días gratis <span class="arr">→</span></a>
         <a href="#crea" class="pill ghost">Mira lo que crea</a>
       </div>
-      <div class="cta-note kick">Sin tarjeta · lista en ~10 minutos</div>
+      <div class="cta-note kick">Sin tarjeta · lista en ~10 minutos · la prueba no incluye conectar canales</div>
     </div>
 
     <div id="phone" class="phone-glow">
       <div class="phone">
         <div class="phone-scr">
           <div class="ph-top">
-            <div class="ph-av">K</div>
+            <div class="ph-av">L</div>
             <div>
-              <div class="ph-name">Kasa Home · Boutique</div>
+              <div class="ph-name">Lumina · Medicina estética</div>
               <div class="ph-stat"><span class="ph-dot"></span>REM respondiendo</div>
             </div>
           </div>
           <div id="chat" class="ph-body">
-            <div class="msg you">Hola! ¿el bolso Milano lo tienen en color arena? 🙏<span class="t">11:47 PM</span></div>
-            <div class="msg rem">¡Hola! 😊 Sí — el Milano en arena está disponible: $1,290, hasta 6 meses sin intereses y envío en 2 días. ¿Te lo aparto?<span class="t">11:47 PM</span></div>
-            <div class="msg you">sii ¿puedo pagar con tarjeta?<span class="t">11:48 PM</span></div>
-            <div class="msg rem">¡Claro! Aceptamos tarjeta. Te paso el link de pago y llega en 2 días. ¿A qué nombre lo dejo? ✨<span class="t">11:48 PM</span></div>
+            <div class="msg you">Hola! vi lo del láser, ¿cuánto sale? 🙏<span class="t">11:47 PM</span></div>
+            <div class="msg rem">¡Hola! 😊 La sesión de láser CO2 está en $4,900, y el paquete de cinco en $19,600. La valoración va sin costo. ¿Te agendo?<span class="t">11:47 PM</span></div>
+            <div class="msg you">sii, ¿tienen esta semana?<span class="t">11:48 PM</span></div>
+            <div class="msg rem">Jueves 5:00 pm o viernes 11:30. ¿Cuál te acomoda? ✨<span class="t">11:48 PM</span></div>
             <div id="typing"><i></i><i></i><i></i></div>
           </div>
         </div>
@@ -297,8 +437,8 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 
 <div class="wrap">
   <div class="strip reveal">
-    <span class="lbl">Para cualquier negocio</span>
-    <span class="chip">Restaurantes<span class="sep">·</span>Boutiques<span class="sep">·</span>Clínicas<span class="sep">·</span>Gimnasios<span class="sep">·</span>Cafeterías<span class="sep">·</span>Dentistas<span class="sep">·</span>Tiendas en línea</span>
+    <p class="strip-lead">Donde una sola cita vale lo que un mes de publicidad.</p>
+    <span class="chip">Medicina estética<span class="sep">·</span>Odontología<span class="sep">·</span>Spa &amp; wellness<span class="sep">·</span>Restaurante de autor<span class="sep">·</span>Joyería<span class="sep">·</span>Inmobiliaria<span class="sep">·</span>Estudio de diseño</span>
   </div>
 </div>
 
@@ -306,29 +446,126 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 <section>
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kick">Lo que hace por ti</span>
-      <h2>Un empleado que no se cansa, no se equivoca de precio y <em>no duerme</em>.</h2>
+      <h2>Un empleado que no se equivoca de precio a las once de la noche.</h2>
     </div>
     <div class="row reveal">
-      <div class="num">01</div>
-      <div>
-        <h3>Atiende y vende, 24/7</h3>
-        <p>Responde cada WhatsApp y cada DM de Instagram en segundos, con tus precios, tu catálogo y tu forma de hablar. Cotiza, resuelve dudas y cierra la venta mientras tú haces otra cosa — o duermes.</p>
-      </div>
+      <h3>Atiende y vende a cualquier hora</h3>
+      <p>Contesta cada WhatsApp y cada DM en segundos, con tus precios y tu forma de hablar. Cotiza, resuelve dudas y cierra mientras tú operas, comes o duermes.</p>
     </div>
     <div class="row reveal">
-      <div class="num">02</div>
-      <div>
-        <h3>Agenda las citas sola</h3>
-        <p>Cuando alguien quiere una cita, REM revisa tu disponibilidad, la confirma y la deja puesta en tu calendario. Tú solo la ves, ya lista.</p>
-      </div>
+      <h3>Agenda sola</h3>
+      <p>Revisa tu disponibilidad real, confirma y deja la cita puesta en el calendario.</p>
     </div>
     <div class="row reveal">
-      <div class="num">03</div>
       <div>
         <h3>Y te hace los videos</h3>
-        <p>Le describes una idea y tu IA genera el reel para tu negocio: guion, voz y edición. Sin editor, sin cámara, sin agencia.</p>
+        <p>Le describes una idea y genera el reel completo: guion, voz y edición. Sin editor, sin cámara, sin agencia.</p>
         <span class="tag">Nadie más hace esto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a id="sabe"></a>
+<div class="wrap"><div class="divider"></div></div>
+<section>
+  <div class="wrap">
+    <div class="headrow reveal">
+      <h2>Esto ya lo sabe contestar el primer día.</h2>
+      <p class="aside">Sale de tu catálogo, tus horarios y tus políticas — y de lo que le enseñes tú, arrastrándole un PDF. Cuando no le toca a ella, te la pasa a ti.</p>
+    </div>
+
+    <div class="tabs reveal" id="tabs">
+      <button class="tab on" data-cat="all">Todas</button>
+      <button class="tab" data-cat="venta">Ventas</button>
+      <button class="tab" data-cat="cita">Citas</button>
+      <button class="tab" data-cat="pago">Pagos y facturas</button>
+      <button class="tab" data-cat="post">Postventa</button>
+    </div>
+
+    <div class="qgrid reveal" id="qgrid">
+      <div class="qcard" data-cat="venta">
+        <div class="q">"¿Cuánto sale una sesión de láser?"</div>
+        <div><div class="a">$4,900 la sesión. El paquete de cinco, $19,600.</div>
+        <div class="src">De tu catálogo</div></div>
+      </div>
+      <div class="qcard" data-cat="venta">
+        <div class="q">"¿Manejan carillas de porcelana?"</div>
+        <div><div class="a">Sí, $9,800 por pieza, con diseño de sonrisa incluido.</div>
+        <div class="src">De tu catálogo</div></div>
+      </div>
+      <div class="qcard" data-cat="venta">
+        <div class="q">"¿Les queda el anillo en talla 6?"</div>
+        <div><div class="a">Queda una pieza. Te la aparto 24 horas sin compromiso.</div>
+        <div class="src">De tu inventario</div></div>
+      </div>
+      <div class="qcard" data-cat="venta">
+        <div class="q">"Somos 14 para una cena privada"</div>
+        <div><div class="a">Eso lo cotiza el chef contigo. Te lo paso ahorita.</div>
+        <div class="src">Te lo pasa a ti</div></div>
+      </div>
+
+      <div class="qcard" data-cat="cita">
+        <div class="q">"¿Tienen espacio esta semana?"</div>
+        <div><div class="a">Jueves 5:00 o viernes 11:30. ¿Cuál te acomoda?</div>
+        <div class="src">De tu agenda</div></div>
+      </div>
+      <div class="qcard" data-cat="cita">
+        <div class="q">"¿Puedo mover mi valoración?"</div>
+        <div><div class="a">Claro. La paso al martes 6:00 y te confirmo.</div>
+        <div class="src">Reagenda sola</div></div>
+      </div>
+      <div class="qcard" data-cat="cita">
+        <div class="q">"¿Cuánto dura el procedimiento?"</div>
+        <div><div class="a">Hora y media. Ven sin maquillaje y sales caminando.</div>
+        <div class="src">De tu información</div></div>
+      </div>
+      <div class="qcard" data-cat="cita">
+        <div class="q">"¿Atienden en domingo?"</div>
+        <div><div class="a">Domingo cerramos. El lunes abrimos a las 10.</div>
+        <div class="src">De tus horarios</div></div>
+      </div>
+
+      <div class="qcard" data-cat="pago">
+        <div class="q">"¿Manejan meses sin intereses?"</div>
+        <div><div class="a">Hasta 12 meses con tarjetas participantes.</div>
+        <div class="src">De tu información</div></div>
+      </div>
+      <div class="qcard" data-cat="pago">
+        <div class="q">"¿Puedo dejar la mitad hoy?"</div>
+        <div><div class="a">Sí: 50% para apartar y el resto el día de tu cita.</div>
+        <div class="src">De tus políticas</div></div>
+      </div>
+      <div class="qcard" data-cat="pago">
+        <div class="q">"Necesito factura"</div>
+        <div><div class="a">Mándanos tu constancia fiscal y sale el mismo día.</div>
+        <div class="src">De tus políticas</div></div>
+      </div>
+      <div class="qcard" data-cat="pago">
+        <div class="q">"¿El paquete se puede diferir?"</div>
+        <div><div class="a">En tres pagos, sin recargo.</div>
+        <div class="src">De tus políticas</div></div>
+      </div>
+
+      <div class="qcard" data-cat="post">
+        <div class="q">"Me quedó una zona irregular"</div>
+        <div><div class="a">Deja lo revisamos hoy. Te agendo valoración sin costo.</div>
+        <div class="src">Y te avisa al momento</div></div>
+      </div>
+      <div class="qcard" data-cat="post">
+        <div class="q">"¿Cada cuánto me toca retoque?"</div>
+        <div><div class="a">A los seis meses. Nosotros te avisamos.</div>
+        <div class="src">De tu información</div></div>
+      </div>
+      <div class="qcard" data-cat="post">
+        <div class="q">"Quedé feliz con el resultado"</div>
+        <div><div class="a">Gracias. Si nos dejas una reseña, aquí está el enlace.</div>
+        <div class="src">Pide la reseña una sola vez</div></div>
+      </div>
+      <div class="qcard" data-cat="post">
+        <div class="q">"Necesito hablar con el doctor"</div>
+        <div><div class="a">Te paso con él. Ya le dejé tu caso completo.</div>
+        <div class="src">Escala a un humano</div></div>
       </div>
     </div>
   </div>
@@ -341,14 +578,40 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
   </div>
 </section>
 
+<div class="wrap"><div class="divider"></div></div>
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:24em">
+      <h2>Y hay tres mensajes que manda sin que se los pidas.</h2>
+    </div>
+    <div class="auto reveal">
+      <div class="abox">
+        <h3>El recordatorio, un día antes</h3>
+        <p>Para que la agenda no se te caiga sola.</p>
+        <div class="bub"><span class="who">REM → tu cliente</span>Hola Ana, te recuerdo tu valoración de mañana 5:00 pm en Lumina. Ven sin maquillaje.</div>
+      </div>
+      <div class="abox">
+        <h3>El resumen, cada noche</h3>
+        <p>Llega por WhatsApp. No tienes que abrir nada.</p>
+        <div class="bub ok"><span class="who">REM → tú</span>Hoy: 21 mensajes atendidos, 4 valoraciones agendadas y un paquete de $19,600 cerrado. Nadie quedó sin respuesta.</div>
+      </div>
+      <div class="abox">
+        <h3>La alerta, cuando toca</h3>
+        <p>Si se sale de lo suyo, no improvisa.</p>
+        <div class="bub"><span class="who">REM → tú</span>Una paciente pregunta si el láser se puede con embarazo. Eso no lo contesto yo — te dejé la conversación abierta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <a id="crea"></a>
 <div class="wrap"><div class="divider"></div></div>
 <section>
   <div class="wrap">
     <div class="sec-head reveal" style="max-width:40em;text-align:center;margin:0 auto 52px">
       <span class="kick">El diferenciador</span>
-      <h2>Le describes una idea. Tu IA te <em>hace el video</em>.</h2>
-      <p style="color:var(--ink2);margin:16px auto 0;max-width:34em">Guion, voz, tomas y edición — listo en minutos, sin editor ni cámara. Estos los hizo REM con una sola frase:</p>
+      <h2>Le describes una idea. Tu IA te hace el video.</h2>
+      <p style="color:var(--ink2);margin:16px auto 0;max-width:34em">Guion, voz, tomas y edición. Estos tres salieron de una sola frase:</p>
     </div>
     <div class="vid-row reveal">
       <div class="vid-phone">
@@ -375,12 +638,77 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
   <div class="wrap">
     <div class="app-wrap">
       <div class="reveal">
-        <span class="kick">Así se ve trabajando</span>
-        <h2 class="serif" style="font-size:48px;line-height:1.08;color:#fff;font-weight:400;margin:14px 0 18px">Contesta, y la cita <em style="font-style:italic;color:var(--teal)">se agenda sola</em>.</h2>
-        <p style="color:var(--ink2);max-width:28em">Un cliente escribe, REM responde con tu info real y, si quiere cita, la deja puesta en tu calendario. Tú solo la ves al día siguiente, ya lista.</p>
+        <h2 class="serif" style="font-size:48px;line-height:1.08;color:#fff;font-weight:400;margin:0 0 18px">Así se ve trabajando.</h2>
+        <p style="color:var(--ink2);max-width:28em">Un cliente escribe, REM contesta con tu información real y, si pide cita, la deja puesta en el calendario. Tú la ves al día siguiente, ya hecha.</p>
       </div>
       <div class="reveal">
         <div class="app-phone"><video src="media/app.mp4" poster="media/app.jpg" preload="none" data-lazy muted loop playsinline></video></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a id="funciones"></a>
+<div class="wrap"><div class="divider"></div></div>
+<section>
+  <div class="wrap">
+    <div class="headrow reveal">
+      <h2>Lo demás también viene adentro.</h2>
+      <p class="aside">No hay módulos que se cobren aparte. El plan es uno.</p>
+    </div>
+
+    <div class="bento reveal">
+      <div class="bx par wide">
+        <div>
+          <h4>La bandeja</h4>
+          <p>WhatsApp e Instagram caen en la misma pantalla. Ves lo que contestó REM, y si te
+             quieres meter tú, escribes ahí mismo y le llega al cliente por su canal.</p>
+        </div>
+        <div>
+          <div class="shot"><img src="media/app-bandeja.jpg" alt="Bandeja de REM con conversaciones de WhatsApp e Instagram" loading="lazy"></div>
+          <div class="pie">Pantalla real · cuenta de demostración</div>
+        </div>
+      </div>
+
+      <div class="bx par vuelta">
+        <div>
+          <div class="shot"><img src="media/app-agenda.jpg" alt="Semana de la agenda con citas agendadas por la IA" loading="lazy"></div>
+          <div class="pie">Pantalla real · ✨ = la agendó la IA</div>
+        </div>
+        <div>
+          <h4>La agenda</h4>
+          <p>Lo que cierra por chat aparece aquí sin que nadie lo capture, junto a lo que
+             apuntaste tú. La estrella marca las que agendó ella sola.</p>
+        </div>
+      </div>
+
+      <div class="bx b2">
+        <h4>El catálogo</h4>
+        <p>Se corrige hablando.</p>
+        <div class="mini">
+          <div class="bub" style="margin-bottom:8px"><span class="who">Tú</span>sube la sesión de láser a $5,200</div>
+          <div class="bub ok"><span class="who">REM</span>Hecho. Láser CO2, sesión: $5,200.</div>
+        </div>
+      </div>
+
+      <div class="bx b2">
+        <h4>La voz</h4>
+        <p>Cuatro voces. Escoges una y esa es la que habla por tu negocio.</p>
+        <div class="mini"><div class="ui-row"><span class="play">▶</span><div class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:15px"></i><i style="height:9px"></i><i style="height:20px"></i><i style="height:28px"></i><i style="height:17px"></i><i style="height:11px"></i><i style="height:24px"></i><i style="height:33px"></i><i style="height:22px"></i><i style="height:14px"></i><i style="height:8px"></i><i style="height:18px"></i><i style="height:30px"></i><i style="height:38px"></i><i style="height:26px"></i><i style="height:15px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:21px"></i><i style="height:29px"></i><i style="height:19px"></i><i style="height:12px"></i><i style="height:7px"></i><i style="height:16px"></i><i style="height:25px"></i><i style="height:34px"></i><i style="height:23px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:10px"></i><i style="height:6px"></i></div><span class="dur">0:07</span></div></div>
+      </div>
+
+      <div class="bx b2">
+        <h4>Tu equipo</h4>
+        <p>Entran con su propio acceso, no con el tuyo.</p>
+        <div class="mini ui">
+          <div class="ui-row"><span class="ui-av">R</span><span class="col"><span class="nm">Recepción</span><span class="tx">agenda y bandeja</span></span></div>
+          <div class="ui-row"><span class="ui-av">G</span><span class="col"><span class="nm">Coordinadora</span><span class="tx">todo, menos los cobros</span></span></div>
+        </div>
+      </div>
+
+      <div class="bx b6" style="flex-direction:row;align-items:center;gap:34px;flex-wrap:wrap;padding:22px 24px">
+        <p style="flex:1;min-width:20em;font-size:15px">Además: <b style="color:#fff;font-weight:500">campañas</b> con copy y foto listas para subir, <b style="color:#fff;font-weight:500">reseñas</b> que pide una sola vez y solo a quien quedó contento, y <b style="color:#fff;font-weight:500">memoria</b> de lo que cada cliente ya te compró.</p>
+        <a href="/registro" class="pill ghost">Verlo por dentro <span class="arr">→</span></a>
       </div>
     </div>
   </div>
@@ -390,17 +718,20 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 <div class="wrap"><div class="divider"></div></div>
 <section>
   <div class="wrap">
-    <div class="sec-head reveal" style="text-align:center;margin:0 auto 48px">
-      <span class="kick">Preguntas frecuentes</span>
-      <h2>Lo que todos <em>preguntan</em>.</h2>
-    </div>
-    <div class="faq reveal">
+    <div class="faq-cols reveal">
+      <div class="faq-aside">
+        <h2>Lo que todos preguntan antes de entrar.</h2>
+        <p>Si lo tuyo no está aquí, escríbenos por <a href="https://wa.me/528120043868" target="_blank" rel="noopener">WhatsApp</a> y te contestamos nosotros — no un formulario.</p>
+      </div>
+    <div class="faq">
       <div class="qa"><h4>¿Necesito saber de tecnología?</h4><p>No. Le cuentas de tu negocio como a un empleado nuevo —qué vendes, a cuánto, tus horarios— y queda lista en unos 10 minutos. Sin instalar nada.</p></div>
       <div class="qa"><h4>¿Cómo conecto WhatsApp e Instagram?</h4><p>WhatsApp con un código QR, igual que WhatsApp Web. Instagram con un inicio de sesión seguro. Nunca compartes tu contraseña con nadie.</p></div>
       <div class="qa"><h4>¿La IA se inventa precios o promociones?</h4><p>Nunca. Responde solo con la información de tu negocio. Si no sabe algo, te lo pasa a ti en vez de inventar.</p></div>
       <div class="qa"><h4>¿Mis datos y los de mis clientes están seguros?</h4><p>Sí. Todo va cifrado y tus datos son tuyos. No se comparten con nadie, y tú controlas qué sabe tu IA.</p></div>
       <div class="qa"><h4>¿Sirve para mi tipo de negocio?</h4><p>Sí. REM atiende restaurantes, boutiques, clínicas, gimnasios, tiendas en línea… cualquier negocio que reciba mensajes de clientes.</p></div>
+      <div class="qa"><h4>¿Qué incluye la prueba de 7 días?</h4><p>Sirve para que <b>tú</b> pruebes la IA: la configuras, la entrenas con tus datos, hablas con ella, la pones a prueba en el Sandbox y creas hasta 3 videos. <b>No incluye conectar WhatsApp ni Instagram</b>, así que durante la prueba no atiende a tus clientes reales — eso entra con el plan de $999.</p></div>
       <div class="qa"><h4>¿Puedo cancelar cuando quiera?</h4><p>Cuando quieras, sin permanencia. Y empiezas con 7 días gratis, sin tarjeta.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -410,26 +741,25 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
 <section>
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kick">Precio</span>
-      <h2>Un solo plan. <em>Todo incluido.</em></h2>
+      <h2>Un solo plan, y son $999 al mes.</h2>
     </div>
     <div class="plans reveal">
       <div class="plan">
         <div class="pk">Prueba</div>
         <div class="price">$0<small> / 7 días</small></div>
-        <p class="pnote">Para entrenarla y verla trabajar tú mismo.</p>
+        <p class="pnote">Para entrenarla y probarla <b>tú</b>. No atiende a tus clientes todavía.</p>
         <ul>
           <li>Tu IA personalizada</li>
           <li>Chat y sandbox para probarla</li>
           <li>3 videos con REM Studio</li>
-          <li class="no">Conexión de canales</li>
+          <li class="no">Conexión de canales (WhatsApp e Instagram)</li>
         </ul>
         <a href="/registro" class="pill ghost">Empezar prueba</a>
       </div>
       <div class="plan pro">
         <div class="pk">REM · todo incluido</div>
-        <div class="price">$55<small> USD / mes</small></div>
-        <div style="font-size:12px;opacity:.55;margin-top:2px;">≈ $1,100 MXN</div>
+        <div class="price">$999<small> MXN / mes</small></div>
+        <div style="font-size:12px;opacity:.55;margin-top:2px;">≈ 50 USD</div>
         <p class="pnote">Tu negocio atendido, todos los días.</p>
         <ul>
           <li>WhatsApp e Instagram conectados</li>
@@ -448,33 +778,70 @@ footer{border-top:1px solid var(--line);padding:44px 0;margin-top:50px}
   <div class="wrap reveal">
     <h2>Deja de perder clientes<br>en <em>visto</em>.</h2>
     <a href="/registro" class="pill" style="font-size:16px;padding:15px 30px">Probar 7 días gratis <span class="arr">→</span></a>
-    <div class="note kick">Sin tarjeta · lista en ~10 minutos · cancela cuando quieras</div>
+    <div class="note kick">Sin tarjeta · cancela cuando quieras · la prueba no incluye conectar canales</div>
   </div>
 </div>
 
 <footer>
-  <div class="wrap foot-in">
+  <div class="wrap foot-cols">
+    <div class="foot-brand">
+      <a href="#top" class="logo"><span class="logo-badge"><img src="/logo.png" alt="REM"></span>REM</a>
+      <p>Un empleado de inteligencia artificial que atiende el WhatsApp y el Instagram de tu negocio, agenda las citas y te hace el contenido.</p>
+    </div>
+    <div>
+      <h5>Producto</h5>
+      <ul>
+        <li><a href="#hace">Qué hace</a></li>
+        <li><a href="#sabe">Lo que sabe contestar</a></li>
+        <li><a href="#crea">Videos</a></li>
+        <li><a href="#precio">Precio</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Funciones</h5>
+      <ul>
+        <li><a href="#funciones">Bandeja unificada</a></li>
+        <li><a href="#funciones">Agenda</a></li>
+        <li><a href="#funciones">Catálogo</a></li>
+        <li><a href="#funciones">REM Studio</a></li>
+        <li><a href="#funciones">Campañas</a></li>
+        <li><a href="#funciones">Voz y equipo</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="/registro">Crear cuenta</a></li>
+        <li><a href="/login">Iniciar sesión</a></li>
+        <li><a href="https://wa.me/528120043868" target="_blank" rel="noopener">Contacto por WhatsApp</a></li>
+        <li><a href="/terms.html">Términos</a></li>
+        <li><a href="/privacy.html">Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap"><div class="divider"></div></div>
+  <div class="wrap foot-in" style="padding-top:28px">
     <span>REM · Hecho en México · 2026</span>
-    <span>
-      <a href="/terms.html">Términos</a> ·
-      <a href="/privacy.html">Privacidad</a> ·
-      <a href="/login">Iniciar sesión</a>
-    </span>
+    <span>Monterrey, Nuevo León · <a href="https://wa.me/528120043868" target="_blank" rel="noopener">wa.me/528120043868</a></span>
   </div>
 </footer>
 
 <script>
 /* estrellas (campo sutil, como el onboarding) */
 (function(){
-  var c=document.getElementById('stars'),x=c.getContext('2d'),st=[];
-  function size(){c.width=innerWidth;c.height=innerHeight;st=[];var n=Math.min(150,Math.round(innerWidth*innerHeight/14000));
-    for(var i=0;i<n;i++)st.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3+.2,
-      a:Math.random(),s:Math.random()*.018+.004});}
-  size();addEventListener('resize',size);
-  (function draw(){x.clearRect(0,0,c.width,c.height);
-    for(var i=0;i<st.length;i++){var p=st[i];p.a+=p.s;var o=.35+.45*(Math.sin(p.a)*.5+.5);
-      x.globalAlpha=o;x.fillStyle='#cfe6ff';x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();}
-    requestAnimationFrame(draw);})();
+  var c=document.getElementById('stars'),x=c.getContext('2d'),t=null;
+  function pintar(){
+    c.width=innerWidth;c.height=innerHeight;
+    var n=Math.min(140,Math.round(innerWidth*innerHeight/16000));
+    x.clearRect(0,0,c.width,c.height);x.fillStyle='#cfe6ff';
+    for(var i=0;i<n;i++){
+      x.globalAlpha=.3+Math.random()*.5;
+      x.beginPath();x.arc(Math.random()*c.width,Math.random()*c.height,Math.random()*1.3+.2,0,6.283);x.fill();
+    }
+  }
+  pintar();
+  addEventListener('resize',function(){clearTimeout(t);t=setTimeout(pintar,250);});
 })();
 
 /* nav on scroll */
@@ -491,6 +858,26 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
   if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.25});
 document.querySelectorAll('video[data-lazy]').forEach(function(v){vio.observe(v);});
+/* Si el usuario se va a otra pestaña, no tiene sentido seguir decodificando cuatro videos. */
+document.addEventListener('visibilitychange',function(){
+  if(document.hidden) document.querySelectorAll('video[data-lazy]').forEach(function(v){v.pause();});
+});
+
+/* pestañas de la rejilla de preguntas.
+   🔴 Filtra ocultando, no re-pintando: las tarjetas ya están en el HTML, así que el que llega
+   sin JS (o con él a medio cargar) las ve TODAS en vez de una sección vacía. */
+(function(){
+  var tabs=document.getElementById('tabs'); if(!tabs) return;
+  var cards=[].slice.call(document.querySelectorAll('#qgrid [data-cat]'));
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest('.tab'); if(!b) return;
+    tabs.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t===b);});
+    var cat=b.dataset.cat;
+    cards.forEach(function(c){
+      c.classList.toggle('off', cat!=='all' && c.dataset.cat!=='all' && c.dataset.cat!==cat);
+    });
+  });
+})();
 
 /* chat del teléfono en bucle */
 (function(){

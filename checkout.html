@@ -134,13 +134,15 @@ input:focus{border-color:rgba(0,201,160,.5);}
 
     <div class="plan-card" id="planCard">
       <span class="tag" id="planTag">PLAN REM.AI</span>
-      <div class="price" id="planPrice">$55<small> USD / mes</small></div>
-      <div style="font-size:12px;opacity:.55;margin-top:2px;">≈ $1,100 MXN</div>
+      <div class="price" id="planPrice">$999<small> MXN / mes</small></div>
+      <div style="font-size:12px;opacity:.55;margin-top:2px;">≈ 50 USD</div>
       <ul id="planList"></ul>
-      <div class="total"><span>Total de hoy</span><b id="planTotal">$55.00 USD</b></div>
+      <div class="total"><span>Total de hoy</span><b id="planTotal">$999.00 MXN</b></div>
     </div>
     <p class="switch" id="planSwitch"></p>
-    <p class="trial-note">Cancela cuando quieras desde tu cuenta. Sin permanencia.</p>
+    <p class="trial-note">Cancela cuando quieras desde tu cuenta. Sin permanencia.<br>
+      La prueba gratuita de 7 días sirve para entrenar y probar tu IA; <b>no incluye conectar
+      WhatsApp ni Instagram</b>. Eso entra con el plan.</p>
   </div>
 
   <div class="pay">
@@ -187,13 +189,13 @@ input:focus{border-color:rgba(0,201,160,.5);}
 <script>
 // UN SOLO PLAN. Los enlaces viejos (?plan=starter, ?plan=enterprise) siguen existiendo por ahí
 // —en correos, en capturas, en el chat— y caen aquí igual: al no encontrar la clave, el
-// fallback los deja en el de $55 en vez de romper la página.
+// fallback los deja en el de $999 en vez de romper la página.
 var PLANES={
   pro:{
     tag:'PLAN REM.AI',precio:99,ent:false,
     lista:['WhatsApp, Instagram y Shopify conectados','REM atendiendo a tus clientes reales 24/7','Agenda citas sola desde los mensajes','20 videos al mes generados por IA','Voz propia de tu IA y campañas para redes','Equipo, reseñas de Google y bandeja unificada','Resumen diario y centro de control'],
     switchTxt:'Todo incluido, sin niveles ni extras. Cancela cuando quieras.',
-    wa:'Hola, quiero activar REM ($55 USD/mes). Mi correo: '
+    wa:'Hola, quiero activar REM ($999 MXN/mes). Mi correo: '
   }
 };
 var _params=new URLSearchParams(location.search);
