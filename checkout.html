@@ -134,10 +134,9 @@ input:focus{border-color:rgba(0,201,160,.5);}
 
     <div class="plan-card" id="planCard">
       <span class="tag" id="planTag">PLAN REM.AI</span>
-      <div class="price" id="planPrice">$999<small> MXN / mes</small></div>
-      <div style="font-size:12px;opacity:.55;margin-top:2px;">≈ 50 USD</div>
+      <div class="price" id="planPrice">$899<small> MXN / mes</small></div>
       <ul id="planList"></ul>
-      <div class="total"><span>Total de hoy</span><b id="planTotal">$999.00 MXN</b></div>
+      <div class="total"><span>Total de hoy</span><b id="planTotal">$899.00 MXN</b></div>
     </div>
     <p class="switch" id="planSwitch"></p>
     <p class="trial-note">Cancela cuando quieras desde tu cuenta. Sin permanencia.<br>
@@ -189,13 +188,13 @@ input:focus{border-color:rgba(0,201,160,.5);}
 <script>
 // UN SOLO PLAN. Los enlaces viejos (?plan=starter, ?plan=enterprise) siguen existiendo por ahí
 // —en correos, en capturas, en el chat— y caen aquí igual: al no encontrar la clave, el
-// fallback los deja en el de $999 en vez de romper la página.
+// fallback los deja en el de $899 en vez de romper la página.
 var PLANES={
   pro:{
     tag:'PLAN REM.AI',precio:99,ent:false,
     lista:['WhatsApp, Instagram y Shopify conectados','REM atendiendo a tus clientes reales 24/7','Agenda citas sola desde los mensajes','20 videos al mes generados por IA','Voz propia de tu IA y campañas para redes','Equipo, reseñas de Google y bandeja unificada','Resumen diario y centro de control'],
     switchTxt:'Todo incluido, sin niveles ni extras. Cancela cuando quieras.',
-    wa:'Hola, quiero activar REM ($999 MXN/mes). Mi correo: '
+    wa:'Hola, quiero activar REM ($899 MXN/mes). Mi correo: '
   }
 };
 var _params=new URLSearchParams(location.search);
